@@ -20,6 +20,7 @@
     <nav class="tabs" id="tabs">
       <button class="tab-btn active" data-view="tracker">75 Hard Tracker</button>
       <button class="tab-btn" data-view="daytoday">Day to Day</button>
+      <button class="tab-btn" data-view="water">Water</button>
       <button class="tab-btn" data-view="records">Fitness Records</button>
       <button class="tab-btn" data-view="bodystats">Body Stats</button>
     </nav>
@@ -125,36 +126,143 @@
 
     </section>
 
+    <!-- ===================== WATER ===================== -->
+    <section id="view-water" class="view">
+      <div class="panel water-panel">
+        <div class="panel-header">
+          <h2>Water Tracker</h2>
+          <p>Fill it up. Default goal is 1 gallon (128 oz) — adjust anytime.</p>
+        </div>
+
+        <div class="water-layout">
+          <div class="water-figure">
+            <svg id="water-bottle" viewBox="0 0 200 410" aria-label="Water bottle fill level">
+              <defs>
+                <clipPath id="bottleClip">
+                  <rect x="30" y="72" width="140" height="300" rx="30" ry="30"></rect>
+                </clipPath>
+                <linearGradient id="waterGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#5ac8ff"></stop>
+                  <stop offset="100%" stop-color="#2f8fe0"></stop>
+                </linearGradient>
+              </defs>
+
+              <!-- tick marks -->
+              <g class="bottle-ticks">
+                <line x1="30" y1="72" x2="170" y2="72"></line>
+                <text x="176" y="76">128 oz</text>
+                <line x1="30" y1="147" x2="170" y2="147"></line>
+                <text x="176" y="151">96 oz</text>
+                <line x1="30" y1="222" x2="170" y2="222"></line>
+                <text x="176" y="226">64 oz</text>
+                <line x1="30" y1="297" x2="170" y2="297"></line>
+                <text x="176" y="301">32 oz</text>
+              </g>
+
+              <!-- fill -->
+              <g clip-path="url(#bottleClip)">
+                <rect id="water-fill-rect" x="30" width="140" y="372" height="0" fill="url(#waterGradient)"></rect>
+                <rect id="water-fill-surface" x="30" width="140" y="372" height="6" fill="#ffffff" opacity="0.35"></rect>
+              </g>
+
+              <!-- outline -->
+              <rect x="30" y="72" width="140" height="300" rx="30" ry="30" class="bottle-outline"></rect>
+              <path d="M 85 26 L 85 74 L 115 74 L 115 26 Z" class="bottle-outline"></path>
+              <rect x="80" y="6" width="40" height="22" rx="6" class="bottle-cap"></rect>
+            </svg>
+          </div>
+
+          <div class="water-controls">
+            <div class="water-stat-big"><span id="water-total">0</span> <span class="water-stat-unit">/ <span id="water-goal-display">128</span> oz</span></div>
+            <div class="water-stat-pct" id="water-pct">0%</div>
+
+            <div class="quick-add-row">
+              <button type="button" class="btn btn-water" data-amount="8">+8 oz<br><small>Glass</small></button>
+              <button type="button" class="btn btn-water" data-amount="16">+16 oz<br><small>Cup</small></button>
+              <button type="button" class="btn btn-water" data-amount="24">+24 oz<br><small>Bottle</small></button>
+              <button type="button" class="btn btn-water" data-amount="32">+32 oz<br><small>Big Bottle</small></button>
+            </div>
+
+            <form id="water-custom-form" class="inline-form">
+              <input type="number" id="water-custom-amount" placeholder="Custom oz" min="1" step="1">
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+
+            <label class="field water-goal-field">
+              <span>Daily goal (oz)</span>
+              <input type="number" id="water-goal-input" min="1" step="1">
+            </label>
+
+            <button type="button" class="btn btn-ghost" id="btn-water-reset">Reset Today</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="water-table">
+            <thead><tr><th>Time</th><th>Amount</th><th></th></tr></thead>
+            <tbody id="water-tbody"></tbody>
+          </table>
+          <p class="empty-msg" id="water-empty">No water logged yet today.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== FITNESS RECORDS ===================== -->
     <section id="view-records" class="view">
 
       <div class="panel">
         <div class="panel-header">
-          <h2>Personal Records</h2>
-          <p>Your best lifts and marks, all in one place.</p>
+          <h2>Strength PRs</h2>
+          <p>Weight, sets, and reps — kept separate so they're easy to scan and beat.</p>
         </div>
         <form id="pr-form" class="inline-form">
           <input type="text" id="pr-exercise" placeholder="Exercise (e.g. Deadlift)" required>
-          <input type="number" id="pr-value" placeholder="Weight / value" step="0.1" required>
-          <select id="pr-unit">
+          <input type="number" id="pr-weight" placeholder="Weight (blank = bodyweight)" step="0.5">
+          <select id="pr-weight-unit">
             <option value="lb">lb</option>
             <option value="kg">kg</option>
-            <option value="min">min</option>
-            <option value="sec">sec</option>
-            <option value="reps">reps</option>
-            <option value="mi">mi</option>
           </select>
+          <input type="number" id="pr-sets" placeholder="Sets" min="1" step="1" class="input-narrow">
+          <input type="number" id="pr-reps" placeholder="Reps" min="0" step="1" class="input-narrow">
           <input type="date" id="pr-date" required>
           <button type="submit" class="btn btn-primary">Add PR</button>
         </form>
         <div class="table-wrap">
           <table id="pr-table">
             <thead>
-              <tr><th>Exercise</th><th>Record</th><th>Date</th><th></th></tr>
+              <tr><th>Exercise</th><th>Weight</th><th>Sets</th><th>Reps</th><th>Date</th><th></th></tr>
             </thead>
             <tbody id="pr-tbody"></tbody>
           </table>
-          <p class="empty-msg" id="pr-empty">No personal records yet — add your first one above.</p>
+          <p class="empty-msg" id="pr-empty">No strength PRs yet — add your first one above.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Time &amp; Endurance Records</h2>
+          <p>Holds, dead hangs, mile time, row time — anything measured in time or distance.</p>
+        </div>
+        <form id="endurance-form" class="inline-form">
+          <input type="text" id="end-exercise" placeholder="Exercise (e.g. Dead Hang)" required>
+          <input type="number" id="end-value" placeholder="Value" step="0.1" required>
+          <select id="end-unit">
+            <option value="sec">sec</option>
+            <option value="min">min</option>
+            <option value="mi">mi</option>
+            <option value="km">km</option>
+          </select>
+          <input type="date" id="end-date" required>
+          <button type="submit" class="btn btn-primary">Add Record</button>
+        </form>
+        <div class="table-wrap">
+          <table id="endurance-table">
+            <thead>
+              <tr><th>Exercise</th><th>Record</th><th>Date</th><th></th></tr>
+            </thead>
+            <tbody id="endurance-tbody"></tbody>
+          </table>
+          <p class="empty-msg" id="endurance-empty">No time/endurance records yet — add your first one above.</p>
         </div>
       </div>
 

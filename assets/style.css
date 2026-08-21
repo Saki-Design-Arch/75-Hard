@@ -341,6 +341,12 @@ body {
   min-width: 160px;
 }
 
+.input-narrow {
+  width: 72px;
+  flex: none !important;
+  min-width: 0 !important;
+}
+
 .table-wrap table {
   width: 100%;
   border-collapse: collapse;
@@ -477,6 +483,121 @@ body {
 #week-tbody tr.today-row td {
   color: var(--accent);
   font-weight: 700;
+}
+
+/* ---- water tracker ---- */
+.water-layout {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.water-figure {
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+#water-bottle {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bottle-outline {
+  fill: none;
+  stroke: var(--text-dim);
+  stroke-width: 4;
+}
+
+.bottle-cap {
+  fill: var(--text-dim);
+}
+
+#water-fill-rect {
+  transition: y .4s ease, height .4s ease;
+}
+
+#water-fill-surface {
+  transition: y .4s ease;
+}
+
+.bottle-ticks line {
+  stroke: var(--border);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.bottle-ticks text {
+  fill: var(--text-dim);
+  font-size: 13px;
+}
+
+.water-controls {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.water-stat-big {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.water-stat-unit {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.water-stat-pct {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: -8px;
+}
+
+.quick-add-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-water {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-water small {
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.btn-water:hover {
+  border-color: #2f8fe0;
+  color: #5ac8ff;
+}
+
+.water-goal-field {
+  max-width: 160px;
+}
+
+.water-goal-field input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
 }
 
 /* ---- chart ---- */
