@@ -19,6 +19,7 @@
     </div>
     <nav class="tabs" id="tabs">
       <button class="tab-btn active" data-view="tracker">75 Hard Tracker</button>
+      <button class="tab-btn" data-view="daytoday">Day to Day</button>
       <button class="tab-btn" data-view="records">Fitness Records</button>
       <button class="tab-btn" data-view="bodystats">Body Stats</button>
     </nav>
@@ -66,6 +67,62 @@
       <p class="rules-hint">Each day: two 45-min workouts (one outdoors) &middot; follow a diet &middot; 1 gallon of water &middot; read 10 pages &middot; take a progress photo. Miss one, and the day isn't complete.</p>
 
       <div class="day-grid" id="day-grid"></div>
+    </section>
+
+    <!-- ===================== DAY TO DAY (Foundation Protocol) ===================== -->
+    <section id="view-daytoday" class="view">
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Foundation Protocol</h2>
+          <p>Heavy Calisthenics / Marine Conditioning — self-coached, six months, reassessed every 4 weeks.</p>
+        </div>
+        <div class="controls-row">
+          <label class="field">
+            <span>Program start date</span>
+            <input type="date" id="program-start-date">
+          </label>
+          <div class="phase-status" id="phase-status"></div>
+        </div>
+      </div>
+
+      <div class="panel" id="today-session-panel">
+        <div class="panel-header">
+          <h2 id="today-session-title">Today's Session</h2>
+          <p id="today-session-emphasis"></p>
+        </div>
+        <div id="today-session-body"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Daily Non-Negotiables</h2>
+          <p>Regardless of what day it is — these move the needle as much as any workout.</p>
+        </div>
+        <div class="checklist" id="nonneg-list"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Nutrition Targets</h2>
+          <p>Phase 1–2 deficit target — recalculate every 15–20 lb lost or 3–4 weeks.</p>
+        </div>
+        <div class="nutrition-grid" id="nutrition-grid"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Weekly Split</h2>
+          <p>Six training days, one true rest day.</p>
+        </div>
+        <div class="table-wrap">
+          <table id="week-table">
+            <thead><tr><th>Day</th><th>Session</th><th>Emphasis</th></tr></thead>
+            <tbody id="week-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
     </section>
 
     <!-- ===================== FITNESS RECORDS ===================== -->
