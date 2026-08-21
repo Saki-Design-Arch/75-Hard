@@ -13,7 +13,7 @@
   ];
 
   // ---- Foundation Protocol: Heavy Calisthenics / Marine Conditioning ----
-  const PROGRAM_START_DEFAULT = "2026-08-16";
+  const WATER_GOAL_DEFAULT = 128; // 1 gallon, in oz
 
   const PHASES = [
     { phase: 1, weeks: [1, 4], name: "Foundation & Ignition", focus: "Relearn movement patterns, protect joints, build the habit, start the deficit, low-impact conditioning." },
@@ -27,7 +27,7 @@
     { key: "mobility", label: "10-min mobility", detail: "Hamstring / hip / wrist" },
     { key: "sleep", label: "Sleep 7–9 hours", detail: "" },
     { key: "protein", label: "Protein 180–200 g", detail: "" },
-    { key: "water", label: "Water 150–180 oz", detail: "" },
+    { key: "water", label: "Water 150–180 oz", detail: "Log ounces in the Water tab" },
   ];
 
   const NUTRITION_TARGETS = [
@@ -129,32 +129,58 @@
       startDate: todayISO(),
       attempt: 1,
       days: {},
-      programStartDate: PROGRAM_START_DEFAULT,
+      programStartDate: todayISO(),
       dayTasks: {},
       prs: [
-        { id: uid(), exercise: "Push-ups (strict, max)", value: 10, unit: "reps", date: "2026-08-16" },
-        { id: uid(), exercise: "Pull-ups", value: 0, unit: "reps", date: "2026-08-16" },
+        { id: uid(), exercise: "Push-ups (strict, max)", weight: null, weightUnit: "lb", sets: 1, reps: 10, date: "2026-08-16" },
+        { id: uid(), exercise: "Pull-ups", weight: null, weightUnit: "lb", sets: 1, reps: 0, date: "2026-08-16" },
+        { id: uid(), exercise: "Vertical Crunch (max reps)", weight: null, weightUnit: "lb", sets: 1, reps: 100, date: "2026-08-16" },
+        { id: uid(), exercise: "Smith Machine Squat", weight: null, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Romanian Deadlift", weight: 115, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Smith Machine Bench Press", weight: 125, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Dumbbell Bench Press", weight: 50, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Dumbbell Shoulder Press", weight: 40, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Lat Pulldown", weight: 100, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Seated Cable Row", weight: 135, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
+        { id: uid(), exercise: "Biceps Curl Machine", weight: 100, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
+        { id: uid(), exercise: "Leg Extension", weight: 80, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
+        { id: uid(), exercise: "Leg Curl", weight: 140, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
+      ],
+      endurance: [
         { id: uid(), exercise: "Dead Hang", value: 10, unit: "sec", date: "2026-08-16" },
         { id: uid(), exercise: "Hollow Hold", value: 25, unit: "sec", date: "2026-08-16" },
         { id: uid(), exercise: "Wall Sit", value: 75, unit: "sec", date: "2026-08-16" },
         { id: uid(), exercise: "1-Mile Run (AssaultRunner)", value: 11.8, unit: "min", date: "2026-08-16" },
         { id: uid(), exercise: "2,000m Row", value: 8.4, unit: "min", date: "2026-08-16" },
-        { id: uid(), exercise: "Smith Machine Bench Press (5 reps)", value: 125, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Dumbbell Bench Press (5 reps)", value: 50, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Dumbbell Shoulder Press (5 reps)", value: 40, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Lat Pulldown (5 reps)", value: 100, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Seated Cable Row (5 reps)", value: 135, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Biceps Curl Machine (8 reps)", value: 100, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Leg Extension (8 reps)", value: 80, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Leg Curl (8 reps)", value: 140, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Romanian Deadlift (5 reps)", value: 115, unit: "lb", date: "2026-08-16" },
-        { id: uid(), exercise: "Vertical Crunch (max reps)", value: 100, unit: "reps", date: "2026-08-16" },
       ],
       workouts: [],
       bodyweights: [
         { id: uid(), date: "2026-08-21", value: 256.4, unit: "lb" },
       ],
+      waterGoal: WATER_GOAL_DEFAULT,
+      water: {},
     };
+  }
+
+  // Reshapes any PR entries saved under the old {value, unit} schema into the
+  // current {weight, sets, reps} / endurance split, so existing localStorage
+  // from before this change keeps working.
+  function migrateLegacyPRs(s) {
+    if (!Array.isArray(s.prs)) { s.prs = []; return; }
+    if (!Array.isArray(s.endurance)) s.endurance = [];
+    const kept = [];
+    s.prs.forEach((p) => {
+      if ("weight" in p || "sets" in p || "reps" in p) { kept.push(p); return; }
+      if (p.unit === "lb" || p.unit === "kg") {
+        kept.push({ id: p.id, exercise: p.exercise, weight: p.value, weightUnit: p.unit, sets: 1, reps: null, date: p.date });
+      } else if (p.unit === "reps") {
+        kept.push({ id: p.id, exercise: p.exercise, weight: null, weightUnit: "lb", sets: 1, reps: p.value, date: p.date });
+      } else {
+        const dup = s.endurance.some((e) => e.exercise === p.exercise && e.date === p.date && e.value === p.value);
+        if (!dup) s.endurance.push({ id: p.id, exercise: p.exercise, value: p.value, unit: p.unit, date: p.date });
+      }
+    });
+    s.prs = kept;
   }
 
   function load() {
@@ -162,7 +188,9 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return defaultState();
       const parsed = JSON.parse(raw);
-      return Object.assign(defaultState(), parsed);
+      const merged = Object.assign(defaultState(), parsed);
+      migrateLegacyPRs(merged);
+      return merged;
     } catch (e) {
       console.warn("Failed to load saved data, starting fresh.", e);
       return defaultState();
@@ -313,7 +341,7 @@
   const programStartInput = document.getElementById("program-start-date");
   programStartInput.value = state.programStartDate;
   programStartInput.addEventListener("change", () => {
-    state.programStartDate = programStartInput.value || PROGRAM_START_DEFAULT;
+    state.programStartDate = programStartInput.value || todayISO();
     save();
     renderDayToDay();
   });
@@ -461,18 +489,28 @@
     });
   }
 
-  // ---------------- Fitness Records: PRs ----------------
+  // ---------------- Fitness Records: Strength PRs ----------------
   document.getElementById("pr-date").value = todayISO();
 
   document.getElementById("pr-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const exercise = document.getElementById("pr-exercise").value.trim();
-    const value = document.getElementById("pr-value").value;
-    const unit = document.getElementById("pr-unit").value;
+    const weight = document.getElementById("pr-weight").value;
+    const weightUnit = document.getElementById("pr-weight-unit").value;
+    const sets = document.getElementById("pr-sets").value;
+    const reps = document.getElementById("pr-reps").value;
     const date = document.getElementById("pr-date").value || todayISO();
-    if (!exercise || !value) return;
+    if (!exercise) return;
 
-    state.prs.push({ id: uid(), exercise, value: parseFloat(value), unit, date });
+    state.prs.push({
+      id: uid(),
+      exercise,
+      weight: weight ? parseFloat(weight) : null,
+      weightUnit,
+      sets: sets ? parseInt(sets, 10) : null,
+      reps: reps ? parseInt(reps, 10) : null,
+      date,
+    });
     save();
     e.target.reset();
     document.getElementById("pr-date").value = todayISO();
@@ -491,7 +529,9 @@
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${escapeHtml(pr.exercise)}</td>
-        <td>${pr.value} ${escapeHtml(pr.unit)}</td>
+        <td>${pr.weight != null ? pr.weight + " " + escapeHtml(pr.weightUnit) : "BW"}</td>
+        <td>${pr.sets != null ? pr.sets : "—"}</td>
+        <td>${pr.reps != null ? pr.reps : "—"}</td>
         <td>${pr.date}</td>
         <td></td>
       `;
@@ -502,6 +542,53 @@
         state.prs = state.prs.filter((p) => p.id !== pr.id);
         save();
         renderPRs();
+      });
+      tr.lastElementChild.appendChild(delBtn);
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ---------------- Fitness Records: Time & Endurance ----------------
+  document.getElementById("end-date").value = todayISO();
+
+  document.getElementById("endurance-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const exercise = document.getElementById("end-exercise").value.trim();
+    const value = document.getElementById("end-value").value;
+    const unit = document.getElementById("end-unit").value;
+    const date = document.getElementById("end-date").value || todayISO();
+    if (!exercise || !value) return;
+
+    state.endurance.push({ id: uid(), exercise, value: parseFloat(value), unit, date });
+    save();
+    e.target.reset();
+    document.getElementById("end-date").value = todayISO();
+    renderEndurance();
+  });
+
+  function renderEndurance() {
+    const tbody = document.getElementById("endurance-tbody");
+    const empty = document.getElementById("endurance-empty");
+    tbody.innerHTML = "";
+
+    const sorted = [...state.endurance].sort((a, b) => (a.date < b.date ? 1 : -1));
+    empty.style.display = sorted.length ? "none" : "block";
+
+    sorted.forEach((rec) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${escapeHtml(rec.exercise)}</td>
+        <td>${rec.value} ${escapeHtml(rec.unit)}</td>
+        <td>${rec.date}</td>
+        <td></td>
+      `;
+      const delBtn = document.createElement("button");
+      delBtn.className = "btn-icon";
+      delBtn.textContent = "✕";
+      delBtn.addEventListener("click", () => {
+        state.endurance = state.endurance.filter((r) => r.id !== rec.id);
+        save();
+        renderEndurance();
       });
       tr.lastElementChild.appendChild(delBtn);
       tbody.appendChild(tr);
@@ -549,6 +636,93 @@
         state.workouts = state.workouts.filter((x) => x.id !== w.id);
         save();
         renderWorkouts();
+      });
+      tr.lastElementChild.appendChild(delBtn);
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ---------------- Water Tracker ----------------
+  const waterGoalInput = document.getElementById("water-goal-input");
+  waterGoalInput.value = state.waterGoal;
+  waterGoalInput.addEventListener("change", () => {
+    const v = parseInt(waterGoalInput.value, 10);
+    state.waterGoal = v > 0 ? v : WATER_GOAL_DEFAULT;
+    save();
+    renderWater();
+  });
+
+  function getWaterRecord(dateKey) {
+    if (!state.water[dateKey]) state.water[dateKey] = { entries: [] };
+    return state.water[dateKey];
+  }
+
+  function waterTotal(dateKey) {
+    return getWaterRecord(dateKey).entries.reduce((sum, e) => sum + e.amount, 0);
+  }
+
+  function addWater(amount) {
+    if (!amount || amount <= 0) return;
+    getWaterRecord(todayISO()).entries.push({ id: uid(), amount, time: new Date().toISOString() });
+    save();
+    renderWater();
+  }
+
+  document.querySelectorAll(".btn-water").forEach((btn) => {
+    btn.addEventListener("click", () => addWater(parseFloat(btn.dataset.amount)));
+  });
+
+  document.getElementById("water-custom-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = document.getElementById("water-custom-amount");
+    addWater(parseFloat(input.value));
+    input.value = "";
+  });
+
+  document.getElementById("btn-water-reset").addEventListener("click", () => {
+    if (!confirm("Reset today's water log to 0 oz?")) return;
+    state.water[todayISO()] = { entries: [] };
+    save();
+    renderWater();
+  });
+
+  function renderWater() {
+    const dateKey = todayISO();
+    const total = waterTotal(dateKey);
+    const goal = state.waterGoal || WATER_GOAL_DEFAULT;
+    const pct = Math.max(0, Math.min(1, total / goal));
+
+    document.getElementById("water-total").textContent = total;
+    document.getElementById("water-goal-display").textContent = goal;
+    document.getElementById("water-pct").textContent = Math.round(pct * 100) + "%";
+    waterGoalInput.value = goal;
+
+    const bodyTop = 72, bodyHeight = 300;
+    const fillHeight = bodyHeight * pct;
+    const fillY = bodyTop + (bodyHeight - fillHeight);
+    document.getElementById("water-fill-rect").setAttribute("y", fillHeight > 0 ? fillY : bodyTop + bodyHeight);
+    document.getElementById("water-fill-rect").setAttribute("height", fillHeight);
+    document.getElementById("water-fill-surface").setAttribute("y", fillHeight > 0 ? fillY - 3 : bodyTop + bodyHeight);
+
+    const tbody = document.getElementById("water-tbody");
+    const empty = document.getElementById("water-empty");
+    tbody.innerHTML = "";
+    const entries = getWaterRecord(dateKey).entries.slice().reverse();
+    empty.style.display = entries.length ? "none" : "block";
+
+    entries.forEach((entry) => {
+      const tr = document.createElement("tr");
+      const time = new Date(entry.time);
+      const timeStr = isNaN(time) ? "" : time.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+      tr.innerHTML = `<td>${timeStr}</td><td>${entry.amount} oz</td><td></td>`;
+      const delBtn = document.createElement("button");
+      delBtn.className = "btn-icon";
+      delBtn.textContent = "✕";
+      delBtn.addEventListener("click", () => {
+        const rec = getWaterRecord(dateKey);
+        rec.entries = rec.entries.filter((e) => e.id !== entry.id);
+        save();
+        renderWater();
       });
       tr.lastElementChild.appendChild(delBtn);
       tbody.appendChild(tr);
@@ -647,6 +821,8 @@
   renderTracker();
   renderDayToDay();
   renderPRs();
+  renderEndurance();
   renderWorkouts();
+  renderWater();
   renderBodyStats();
 })();
