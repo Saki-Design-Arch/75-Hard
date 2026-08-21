@@ -152,7 +152,6 @@
       ],
       workouts: [],
       bodyweights: [
-        { id: uid(), date: "2026-08-16", value: 245.6, unit: "lb" },
         { id: uid(), date: "2026-08-21", value: 256.4, unit: "lb" },
       ],
     };
