@@ -157,6 +157,7 @@
       bodyweights: [
         { id: uid(), date: "2026-08-21", value: 256.4, unit: "lb" },
       ],
+      measurements: [],
       waterGoal: WATER_GOAL_DEFAULT,
       water: {},
     };
@@ -772,6 +773,67 @@
     drawWeightChart();
   }
 
+  // ---------------- Body Measurements ----------------
+  document.getElementById("ms-date").value = todayISO();
+
+  document.getElementById("measurement-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const date = document.getElementById("ms-date").value || todayISO();
+    const unit = document.getElementById("ms-unit").value;
+    const waist = document.getElementById("ms-waist").value;
+    const chest = document.getElementById("ms-chest").value;
+    const arms = document.getElementById("ms-arms").value;
+    const thighs = document.getElementById("ms-thighs").value;
+    if (!waist && !chest && !arms && !thighs) return;
+
+    state.measurements.push({
+      id: uid(),
+      date,
+      unit,
+      waist: waist ? parseFloat(waist) : null,
+      chest: chest ? parseFloat(chest) : null,
+      arms: arms ? parseFloat(arms) : null,
+      thighs: thighs ? parseFloat(thighs) : null,
+    });
+    save();
+    e.target.reset();
+    document.getElementById("ms-date").value = todayISO();
+    renderMeasurements();
+  });
+
+  function renderMeasurements() {
+    const tbody = document.getElementById("measurement-tbody");
+    const empty = document.getElementById("measurement-empty");
+    tbody.innerHTML = "";
+
+    const sorted = [...state.measurements].sort((a, b) => (a.date < b.date ? 1 : -1));
+    empty.style.display = sorted.length ? "none" : "block";
+
+    const fmt = (v, unit) => (v != null ? v + " " + escapeHtml(unit) : "—");
+
+    sorted.forEach((m) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${m.date}</td>
+        <td>${fmt(m.waist, m.unit)}</td>
+        <td>${fmt(m.chest, m.unit)}</td>
+        <td>${fmt(m.arms, m.unit)}</td>
+        <td>${fmt(m.thighs, m.unit)}</td>
+        <td></td>
+      `;
+      const delBtn = document.createElement("button");
+      delBtn.className = "btn-icon";
+      delBtn.textContent = "✕";
+      delBtn.addEventListener("click", () => {
+        state.measurements = state.measurements.filter((x) => x.id !== m.id);
+        save();
+        renderMeasurements();
+      });
+      tr.lastElementChild.appendChild(delBtn);
+      tbody.appendChild(tr);
+    });
+  }
+
   function drawWeightChart() {
     const svg = document.getElementById("weight-chart");
     svg.innerHTML = "";
@@ -825,4 +887,5 @@
   renderWorkouts();
   renderWater();
   renderBodyStats();
+  renderMeasurements();
 })();

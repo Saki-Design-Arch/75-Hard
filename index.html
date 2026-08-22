@@ -324,6 +324,34 @@
           </table>
         </div>
       </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Body Measurements</h2>
+          <p>Waist, chest, arms, thighs — tracked separately so you can see exactly where you're changing.</p>
+        </div>
+        <form id="measurement-form" class="inline-form">
+          <input type="date" id="ms-date" required>
+          <select id="ms-unit">
+            <option value="in">in</option>
+            <option value="cm">cm</option>
+          </select>
+          <input type="number" id="ms-waist" placeholder="Waist" step="0.1" class="input-med">
+          <input type="number" id="ms-chest" placeholder="Chest" step="0.1" class="input-med">
+          <input type="number" id="ms-arms" placeholder="Arms" step="0.1" class="input-med">
+          <input type="number" id="ms-thighs" placeholder="Thighs" step="0.1" class="input-med">
+          <button type="submit" class="btn btn-primary">Add Entry</button>
+        </form>
+        <div class="table-wrap">
+          <table id="measurement-table">
+            <thead>
+              <tr><th>Date</th><th>Waist</th><th>Chest</th><th>Arms</th><th>Thighs</th><th></th></tr>
+            </thead>
+            <tbody id="measurement-tbody"></tbody>
+          </table>
+          <p class="empty-msg" id="measurement-empty">No measurements logged yet — fill in whichever body parts you measured, leave the rest blank.</p>
+        </div>
+      </div>
     </section>
 
   </main>
