@@ -123,15 +123,25 @@
   ];
 
   const todayISO = () => new Date().toISOString().slice(0, 10);
+  const yesterdayISO = () => new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   function defaultState() {
     return {
-      startDate: todayISO(),
+      // Seeded one day back so a fresh load starts on Day 2 (Day 1 is already done).
+      startDate: yesterdayISO(),
       attempt: 1,
-      days: {},
+      // Day 1 seeded complete since it's already done.
+      days: {
+        1: { w1: true, w2: true, diet: true, water: true, reading: true, photo: true },
+      },
       dayPhotos: {},
-      programStartDate: todayISO(),
-      dayTasks: {},
+      programStartDate: yesterdayISO(),
+      dayTasks: {
+        [yesterdayISO()]: {
+          main: { 0: true, 1: true, 2: true, 3: true, 4: true },
+          nonNeg: { steps: true, mobility: true, sleep: true, protein: true, water: true },
+        },
+      },
       prs: [
         { id: uid(), exercise: "Push-ups (strict, max)", weight: null, weightUnit: "lb", sets: 1, reps: 10, date: "2026-08-16" },
         { id: uid(), exercise: "Pull-ups", weight: null, weightUnit: "lb", sets: 1, reps: 0, date: "2026-08-16" },
@@ -161,6 +171,7 @@
       measurements: [],
       waterGoal: WATER_GOAL_DEFAULT,
       water: {},
+      food: {},
     };
   }
 
@@ -843,6 +854,110 @@
     });
   }
 
+  // ---------------- Food Log ----------------
+  const FOOD_TARGETS = { calMin: 2100, calMax: 2250, proteinMin: 180, proteinMax: 200, fatMin: 70, fatMax: 80 };
+
+  document.getElementById("food-date").value = todayISO();
+
+  document.getElementById("food-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const date = document.getElementById("food-date").value || todayISO();
+    const meal = document.getElementById("food-meal").value;
+    const name = document.getElementById("food-name").value.trim();
+    const calories = document.getElementById("food-calories").value;
+    const protein = document.getElementById("food-protein").value;
+    const carbs = document.getElementById("food-carbs").value;
+    const fat = document.getElementById("food-fat").value;
+    if (!name) return;
+
+    if (!state.food[date]) state.food[date] = { entries: [] };
+    state.food[date].entries.push({
+      id: uid(),
+      meal,
+      name,
+      calories: calories ? parseInt(calories, 10) : 0,
+      protein: protein ? parseInt(protein, 10) : 0,
+      carbs: carbs ? parseInt(carbs, 10) : 0,
+      fat: fat ? parseInt(fat, 10) : 0,
+    });
+    save();
+    e.target.reset();
+    document.getElementById("food-date").value = todayISO();
+    renderFood();
+  });
+
+  function foodTotalsFor(dateKey) {
+    const rec = state.food[dateKey];
+    const entries = rec ? rec.entries : [];
+    return entries.reduce(
+      (t, en) => ({
+        calories: t.calories + (en.calories || 0),
+        protein: t.protein + (en.protein || 0),
+        carbs: t.carbs + (en.carbs || 0),
+        fat: t.fat + (en.fat || 0),
+      }),
+      { calories: 0, protein: 0, carbs: 0, fat: 0 }
+    );
+  }
+
+  function renderFood() {
+    const totals = foodTotalsFor(todayISO());
+
+    const grid = document.getElementById("food-totals-grid");
+    grid.innerHTML = "";
+    const tiles = [
+      { label: "Calories", value: `${totals.calories} / ${FOOD_TARGETS.calMin}–${FOOD_TARGETS.calMax} kcal` },
+      { label: "Protein", value: `${totals.protein} / ${FOOD_TARGETS.proteinMin}–${FOOD_TARGETS.proteinMax} g` },
+      { label: "Carbs", value: `${totals.carbs} g logged` },
+      { label: "Fat", value: `${totals.fat} / ${FOOD_TARGETS.fatMin}–${FOOD_TARGETS.fatMax}+ g` },
+    ];
+    tiles.forEach((t) => {
+      const div = document.createElement("div");
+      div.className = "nutrition-item";
+      div.innerHTML = `<span class="n-label">${escapeHtml(t.label)}</span><span class="n-value">${escapeHtml(t.value)}</span>`;
+      grid.appendChild(div);
+    });
+
+    const pct = Math.max(0, Math.min(1, totals.calories / FOOD_TARGETS.calMax));
+    document.getElementById("food-cal-fill").style.width = Math.round(pct * 100) + "%";
+    document.getElementById("food-cal-label").textContent = `${totals.calories} / ${FOOD_TARGETS.calMax} kcal`;
+
+    const tbody = document.getElementById("food-tbody");
+    const empty = document.getElementById("food-empty");
+    tbody.innerHTML = "";
+
+    const allEntries = [];
+    Object.keys(state.food).forEach((date) => {
+      state.food[date].entries.forEach((en) => allEntries.push({ date, ...en }));
+    });
+    allEntries.sort((a, b) => (a.date < b.date ? 1 : -1));
+    empty.style.display = allEntries.length ? "none" : "block";
+
+    allEntries.forEach((en) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${en.date}</td>
+        <td>${escapeHtml(en.meal)}</td>
+        <td>${escapeHtml(en.name)}</td>
+        <td>${en.calories}</td>
+        <td>${en.protein}g</td>
+        <td>${en.carbs}g</td>
+        <td>${en.fat}g</td>
+        <td></td>
+      `;
+      const delBtn = document.createElement("button");
+      delBtn.className = "btn-icon";
+      delBtn.textContent = "✕";
+      delBtn.addEventListener("click", () => {
+        state.food[en.date].entries = state.food[en.date].entries.filter((x) => x.id !== en.id);
+        save();
+        renderFood();
+      });
+      tr.lastElementChild.appendChild(delBtn);
+      tbody.appendChild(tr);
+    });
+  }
+
   // ---------------- Body Stats ----------------
   document.getElementById("bw-date").value = todayISO();
 
@@ -999,6 +1114,7 @@
   renderEndurance();
   renderWorkouts();
   renderWater();
+  renderFood();
   renderBodyStats();
   renderMeasurements();
 })();
