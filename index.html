@@ -21,6 +21,7 @@
       <button class="tab-btn active" data-view="tracker">75 Hard Tracker</button>
       <button class="tab-btn" data-view="daytoday">Day to Day</button>
       <button class="tab-btn" data-view="water">Water</button>
+      <button class="tab-btn" data-view="food">Food Log</button>
       <button class="tab-btn" data-view="records">Fitness Records</button>
       <button class="tab-btn" data-view="bodystats">Body Stats</button>
     </nav>
@@ -203,6 +204,52 @@
             <tbody id="water-tbody"></tbody>
           </table>
           <p class="empty-msg" id="water-empty">No water logged yet today.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOD LOG ===================== -->
+    <section id="view-food" class="view">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Today's Totals</h2>
+          <p>Phase 1–2 target: 2,100–2,250 kcal &middot; 180–200g protein &middot; 70–80g fat minimum.</p>
+        </div>
+        <div class="nutrition-grid" id="food-totals-grid"></div>
+        <div class="progress-wrap" style="margin-top:16px;">
+          <div class="progress-bar"><div class="progress-fill" id="food-cal-fill"></div></div>
+          <span class="progress-label" id="food-cal-label">0 / 2,250 kcal</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Log Food</h2>
+          <p>Every meal and snack, with the macros that matter.</p>
+        </div>
+        <form id="food-form" class="inline-form">
+          <input type="date" id="food-date" required>
+          <select id="food-meal">
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Snack</option>
+          </select>
+          <input type="text" id="food-name" placeholder="Food (e.g. Chicken &amp; rice bowl)" required>
+          <input type="number" id="food-calories" placeholder="Calories" min="0" step="1" class="input-med">
+          <input type="number" id="food-protein" placeholder="Protein (g)" min="0" step="1" class="input-med">
+          <input type="number" id="food-carbs" placeholder="Carbs (g)" min="0" step="1" class="input-med">
+          <input type="number" id="food-fat" placeholder="Fat (g)" min="0" step="1" class="input-med">
+          <button type="submit" class="btn btn-primary">Log Food</button>
+        </form>
+        <div class="table-wrap">
+          <table id="food-table">
+            <thead>
+              <tr><th>Date</th><th>Meal</th><th>Food</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th><th></th></tr>
+            </thead>
+            <tbody id="food-tbody"></tbody>
+          </table>
+          <p class="empty-msg" id="food-empty">No food logged yet — add your first meal above.</p>
         </div>
       </div>
     </section>
