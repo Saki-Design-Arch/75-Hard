@@ -347,6 +347,12 @@ body {
   min-width: 0 !important;
 }
 
+.input-med {
+  width: 92px;
+  flex: none !important;
+  min-width: 0 !important;
+}
+
 .table-wrap table {
   width: 100%;
   border-collapse: collapse;
