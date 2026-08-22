@@ -129,6 +129,7 @@
       startDate: todayISO(),
       attempt: 1,
       days: {},
+      dayPhotos: {},
       programStartDate: todayISO(),
       dayTasks: {},
       prs: [
@@ -199,7 +200,12 @@
   }
 
   function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.error("Failed to save — storage may be full.", e);
+      alert("Storage is full. Try removing an older progress photo to free up space, then try again.");
+    }
   }
 
   let state = load();
@@ -328,6 +334,38 @@
         card.appendChild(label);
       });
 
+      const photoWrap = document.createElement("div");
+      photoWrap.className = "day-photo-wrap";
+      const photo = state.dayPhotos[d];
+      if (photo) {
+        const img = document.createElement("img");
+        img.className = "day-photo-thumb";
+        img.src = photo;
+        img.alt = `Day ${d} progress photo`;
+        img.addEventListener("click", () => openLightbox(photo));
+        photoWrap.appendChild(img);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "day-photo-remove";
+        removeBtn.textContent = "✕";
+        removeBtn.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          delete state.dayPhotos[d];
+          save();
+          renderTracker();
+        });
+        photoWrap.appendChild(removeBtn);
+      } else {
+        const addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "day-photo-add";
+        addBtn.textContent = "+ Photo";
+        addBtn.addEventListener("click", () => triggerPhotoUpload(d));
+        photoWrap.appendChild(addBtn);
+      }
+      card.appendChild(photoWrap);
+
       const status = document.createElement("div");
       status.className = "day-status " + (complete ? "complete" : "pending");
       status.textContent = complete ? "Complete" : "Pending";
@@ -337,6 +375,81 @@
     }
     grid.appendChild(frag);
   }
+
+  // ---------------- Progress Photos ----------------
+  let pendingPhotoDay = null;
+  const photoFileInput = document.getElementById("photo-file-input");
+
+  function triggerPhotoUpload(dayNum) {
+    pendingPhotoDay = dayNum;
+    photoFileInput.value = "";
+    photoFileInput.click();
+  }
+
+  function resizeImageFile(file, maxDim, quality) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject(reader.error);
+      reader.onload = () => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          let { width, height } = img;
+          if (width > height && width > maxDim) {
+            height = Math.round(height * (maxDim / width));
+            width = maxDim;
+          } else if (height >= width && height > maxDim) {
+            width = Math.round(width * (maxDim / height));
+            height = maxDim;
+          }
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL("image/jpeg", quality));
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  photoFileInput.addEventListener("change", () => {
+    const file = photoFileInput.files && photoFileInput.files[0];
+    const dayNum = pendingPhotoDay;
+    if (!file || !dayNum) return;
+
+    resizeImageFile(file, 560, 0.72)
+      .then((dataUrl) => {
+        state.dayPhotos[dayNum] = dataUrl;
+        if (!state.days[dayNum]) state.days[dayNum] = {};
+        state.days[dayNum].photo = true;
+        save();
+        renderTracker();
+      })
+      .catch((err) => {
+        console.error("Failed to process photo", err);
+        alert("Couldn't read that image — try a different file.");
+      });
+  });
+
+  const lightbox = document.getElementById("photo-lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.remove("hidden");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+    lightboxImg.src = "";
+  }
+
+  document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
   // ---------------- Day to Day (Foundation Protocol) ----------------
   const programStartInput = document.getElementById("program-start-date");
