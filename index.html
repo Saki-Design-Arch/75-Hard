@@ -240,16 +240,42 @@
           <input type="number" id="food-protein" placeholder="Protein (g)" min="0" step="1" class="input-med">
           <input type="number" id="food-carbs" placeholder="Carbs (g)" min="0" step="1" class="input-med">
           <input type="number" id="food-fat" placeholder="Fat (g)" min="0" step="1" class="input-med">
+          <input type="number" id="food-sugar" placeholder="Sugar (g)" min="0" step="1" class="input-med">
+          <input type="number" id="food-sodium" placeholder="Sodium (mg)" min="0" step="1" class="input-med">
           <button type="submit" class="btn btn-primary">Log Food</button>
         </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Log Full Day Totals</h2>
+          <p>Prefer to enter one number per day instead of itemizing every meal? Log it all at once here.</p>
+        </div>
+        <form id="food-day-form" class="inline-form">
+          <input type="date" id="foodday-date" required>
+          <input type="number" id="foodday-calories" placeholder="Calories" min="0" step="1" class="input-med">
+          <input type="number" id="foodday-protein" placeholder="Protein (g)" min="0" step="1" class="input-med">
+          <input type="number" id="foodday-carbs" placeholder="Carbs (g)" min="0" step="1" class="input-med">
+          <input type="number" id="foodday-fat" placeholder="Fat (g)" min="0" step="1" class="input-med">
+          <input type="number" id="foodday-sugar" placeholder="Sugar (g)" min="0" step="1" class="input-med">
+          <input type="number" id="foodday-sodium" placeholder="Sodium (mg)" min="0" step="1" class="input-med">
+          <button type="submit" class="btn btn-primary">Log Day Total</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Food History</h2>
+          <p>Every logged meal, snack, and full-day total.</p>
+        </div>
         <div class="table-wrap">
           <table id="food-table">
             <thead>
-              <tr><th>Date</th><th>Meal</th><th>Food</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th><th></th></tr>
+              <tr><th>Date</th><th>Meal</th><th>Food</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th><th>Sugar</th><th>Sodium</th><th></th></tr>
             </thead>
             <tbody id="food-tbody"></tbody>
           </table>
-          <p class="empty-msg" id="food-empty">No food logged yet — add your first meal above.</p>
+          <p class="empty-msg" id="food-empty">No food logged yet — add your first meal or day total above.</p>
         </div>
       </div>
     </section>

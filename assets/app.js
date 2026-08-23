@@ -857,6 +857,12 @@
   // ---------------- Food Log ----------------
   const FOOD_TARGETS = { calMin: 2100, calMax: 2250, proteinMin: 180, proteinMax: 200, fatMin: 70, fatMax: 80 };
 
+  function addFoodEntry(date, entry) {
+    if (!state.food[date]) state.food[date] = { entries: [] };
+    state.food[date].entries.push({ id: uid(), ...entry });
+    save();
+  }
+
   document.getElementById("food-date").value = todayISO();
 
   document.getElementById("food-form").addEventListener("submit", (e) => {
@@ -864,25 +870,49 @@
     const date = document.getElementById("food-date").value || todayISO();
     const meal = document.getElementById("food-meal").value;
     const name = document.getElementById("food-name").value.trim();
-    const calories = document.getElementById("food-calories").value;
-    const protein = document.getElementById("food-protein").value;
-    const carbs = document.getElementById("food-carbs").value;
-    const fat = document.getElementById("food-fat").value;
+    const num = (id) => {
+      const v = document.getElementById(id).value;
+      return v ? parseInt(v, 10) : 0;
+    };
     if (!name) return;
 
-    if (!state.food[date]) state.food[date] = { entries: [] };
-    state.food[date].entries.push({
-      id: uid(),
+    addFoodEntry(date, {
       meal,
       name,
-      calories: calories ? parseInt(calories, 10) : 0,
-      protein: protein ? parseInt(protein, 10) : 0,
-      carbs: carbs ? parseInt(carbs, 10) : 0,
-      fat: fat ? parseInt(fat, 10) : 0,
+      calories: num("food-calories"),
+      protein: num("food-protein"),
+      carbs: num("food-carbs"),
+      fat: num("food-fat"),
+      sugar: num("food-sugar"),
+      sodium: num("food-sodium"),
     });
-    save();
     e.target.reset();
     document.getElementById("food-date").value = todayISO();
+    renderFood();
+  });
+
+  document.getElementById("foodday-date").value = todayISO();
+
+  document.getElementById("food-day-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const date = document.getElementById("foodday-date").value || todayISO();
+    const num = (id) => {
+      const v = document.getElementById(id).value;
+      return v ? parseInt(v, 10) : 0;
+    };
+    const totals = {
+      calories: num("foodday-calories"),
+      protein: num("foodday-protein"),
+      carbs: num("foodday-carbs"),
+      fat: num("foodday-fat"),
+      sugar: num("foodday-sugar"),
+      sodium: num("foodday-sodium"),
+    };
+    if (!Object.values(totals).some((v) => v > 0)) return;
+
+    addFoodEntry(date, { meal: "Full Day", name: "Full day total", ...totals });
+    e.target.reset();
+    document.getElementById("foodday-date").value = todayISO();
     renderFood();
   });
 
@@ -895,8 +925,10 @@
         protein: t.protein + (en.protein || 0),
         carbs: t.carbs + (en.carbs || 0),
         fat: t.fat + (en.fat || 0),
+        sugar: t.sugar + (en.sugar || 0),
+        sodium: t.sodium + (en.sodium || 0),
       }),
-      { calories: 0, protein: 0, carbs: 0, fat: 0 }
+      { calories: 0, protein: 0, carbs: 0, fat: 0, sugar: 0, sodium: 0 }
     );
   }
 
@@ -910,6 +942,8 @@
       { label: "Protein", value: `${totals.protein} / ${FOOD_TARGETS.proteinMin}–${FOOD_TARGETS.proteinMax} g` },
       { label: "Carbs", value: `${totals.carbs} g logged` },
       { label: "Fat", value: `${totals.fat} / ${FOOD_TARGETS.fatMin}–${FOOD_TARGETS.fatMax}+ g` },
+      { label: "Sugar", value: `${totals.sugar} g logged` },
+      { label: "Sodium", value: `${totals.sodium} mg logged` },
     ];
     tiles.forEach((t) => {
       const div = document.createElement("div");
@@ -943,6 +977,8 @@
         <td>${en.protein}g</td>
         <td>${en.carbs}g</td>
         <td>${en.fat}g</td>
+        <td>${en.sugar || 0}g</td>
+        <td>${en.sodium || 0}mg</td>
         <td></td>
       `;
       const delBtn = document.createElement("button");
