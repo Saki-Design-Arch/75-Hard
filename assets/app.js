@@ -211,12 +211,14 @@
   }
 
   function save() {
+    state.updatedAt = new Date().toISOString();
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
       console.error("Failed to save — storage may be full.", e);
       alert("Storage is full. Try removing an older progress photo to free up space, then try again.");
     }
+    scheduleSyncPush();
   }
 
   let state = load();
@@ -1143,14 +1145,212 @@
     return div.innerHTML;
   }
 
+  function renderAll() {
+    startDateInput.value = state.startDate;
+    programStartInput.value = state.programStartDate;
+    renderTracker();
+    renderDayToDay();
+    renderPRs();
+    renderEndurance();
+    renderWorkouts();
+    renderWater();
+    renderFood();
+    renderBodyStats();
+    renderMeasurements();
+  }
+
+  // ---------------- Sync (GitHub Gist) ----------------
+  const SYNC_CONFIG_KEY = "75hard-sync-config";
+  const GIST_DESCRIPTION = "75-hard-tracker-sync-data (used by your 75 Hard tracker app — safe to ignore)";
+  const GIST_FILENAME = "75hard-data.json";
+  let syncPushTimer = null;
+  let syncBusy = false;
+
+  function getSyncConfig() {
+    try {
+      const raw = localStorage.getItem(SYNC_CONFIG_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setSyncConfig(cfg) {
+    if (cfg) localStorage.setItem(SYNC_CONFIG_KEY, JSON.stringify(cfg));
+    else localStorage.removeItem(SYNC_CONFIG_KEY);
+  }
+
+  async function ghFetch(path, token, options) {
+    options = options || {};
+    const res = await fetch("https://api.github.com" + path, {
+      method: options.method || "GET",
+      body: options.body,
+      headers: Object.assign(
+        {
+          Authorization: "Bearer " + token,
+          Accept: "application/vnd.github+json",
+          "Content-Type": "application/json",
+        },
+        options.headers || {}
+      ),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`GitHub API ${res.status}: ${body.slice(0, 200)}`);
+    }
+    return res.json();
+  }
+
+  async function findOrCreateGist(token) {
+    const gists = await ghFetch("/gists?per_page=100", token);
+    const existing = gists.find((g) => g.description === GIST_DESCRIPTION);
+    if (existing) return { gistId: existing.id, created: false };
+
+    // Nothing to pull yet — stamp and persist local state as the seed content.
+    state.updatedAt = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+    const created = await ghFetch("/gists", token, {
+      method: "POST",
+      body: JSON.stringify({
+        description: GIST_DESCRIPTION,
+        public: false,
+        files: { [GIST_FILENAME]: { content: JSON.stringify(state) } },
+      }),
+    });
+    return { gistId: created.id, created: true };
+  }
+
+  async function syncPull(cfg) {
+    const gist = await ghFetch("/gists/" + cfg.gistId, cfg.token);
+    const file = gist.files[GIST_FILENAME];
+    if (!file || !file.content) return false;
+    let remote;
+    try {
+      remote = JSON.parse(file.content);
+    } catch (e) {
+      return false;
+    }
+    if (remote && remote.updatedAt && (!state.updatedAt || remote.updatedAt > state.updatedAt)) {
+      state = remote;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderAll();
+      return true;
+    }
+    return false;
+  }
+
+  async function syncPushNow(cfg) {
+    await ghFetch("/gists/" + cfg.gistId, cfg.token, {
+      method: "PATCH",
+      body: JSON.stringify({ files: { [GIST_FILENAME]: { content: JSON.stringify(state) } } }),
+    });
+  }
+
+  function scheduleSyncPush() {
+    const cfg = getSyncConfig();
+    if (!cfg) return;
+    clearTimeout(syncPushTimer);
+    syncPushTimer = setTimeout(() => {
+      syncPushNow(cfg)
+        .then(() => {
+          cfg.lastSyncedAt = new Date().toISOString();
+          setSyncConfig(cfg);
+          updateSyncUI();
+        })
+        .catch((e) => {
+          console.error("Sync push failed", e);
+          updateSyncUI(null, "Sync failed — will retry on next change.");
+        });
+    }, 1500);
+  }
+
+  async function syncReconcile(cfg) {
+    syncBusy = true;
+    updateSyncUI("Syncing…");
+    try {
+      const adopted = await syncPull(cfg);
+      if (!adopted) await syncPushNow(cfg);
+      cfg.lastSyncedAt = new Date().toISOString();
+      setSyncConfig(cfg);
+      updateSyncUI();
+    } catch (e) {
+      console.error("Sync failed", e);
+      updateSyncUI(null, "Sync failed: " + e.message);
+    } finally {
+      syncBusy = false;
+    }
+  }
+
+  function updateSyncUI(pending, error) {
+    const cfg = getSyncConfig();
+    const disconnectedEl = document.getElementById("sync-disconnected");
+    const connectedEl = document.getElementById("sync-connected");
+    const statusEl = document.getElementById("sync-status-line");
+
+    disconnectedEl.hidden = !!cfg;
+    connectedEl.hidden = !cfg;
+    if (!cfg) return;
+
+    statusEl.classList.remove("ok", "error");
+    if (error) {
+      statusEl.textContent = error;
+      statusEl.classList.add("error");
+    } else if (pending) {
+      statusEl.textContent = pending;
+    } else if (cfg.lastSyncedAt) {
+      const t = new Date(cfg.lastSyncedAt);
+      statusEl.textContent = "Last synced " + t.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+      statusEl.classList.add("ok");
+    } else {
+      statusEl.textContent = "Connected.";
+    }
+  }
+
+  document.getElementById("sync-connect-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = document.getElementById("sync-token-input");
+    const token = input.value.trim();
+    if (!token) return;
+
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true;
+    btn.textContent = "Connecting…";
+
+    findOrCreateGist(token)
+      .then(({ gistId, created }) => {
+        const cfg = { token, gistId, lastSyncedAt: created ? new Date().toISOString() : null };
+        setSyncConfig(cfg);
+        input.value = "";
+        if (!created) return syncReconcile(cfg);
+        updateSyncUI();
+      })
+      .catch((err) => {
+        console.error("Connect failed", err);
+        alert("Couldn't connect: " + err.message + "\n\nDouble-check the token has the 'gist' scope and was copied correctly.");
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = "Connect";
+        updateSyncUI();
+      });
+  });
+
+  document.getElementById("btn-sync-now").addEventListener("click", () => {
+    const cfg = getSyncConfig();
+    if (!cfg || syncBusy) return;
+    syncReconcile(cfg);
+  });
+
+  document.getElementById("btn-sync-disconnect").addEventListener("click", () => {
+    if (!confirm("Disconnect sync? Your data stays on this device, and the synced copy stays in the Gist on GitHub — this just stops this browser from syncing to it.")) return;
+    setSyncConfig(null);
+    updateSyncUI();
+  });
+
   // ---------------- Init ----------------
-  renderTracker();
-  renderDayToDay();
-  renderPRs();
-  renderEndurance();
-  renderWorkouts();
-  renderWater();
-  renderFood();
-  renderBodyStats();
-  renderMeasurements();
+  renderAll();
+  updateSyncUI();
+  const bootSyncConfig = getSyncConfig();
+  if (bootSyncConfig) syncReconcile(bootSyncConfig);
 })();
