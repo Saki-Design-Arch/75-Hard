@@ -33,6 +33,7 @@
       <button class="tab-btn" data-view="food">Food Log</button>
       <button class="tab-btn" data-view="records">Fitness Records</button>
       <button class="tab-btn" data-view="bodystats">Body Stats</button>
+      <button class="tab-btn" data-view="sync">Sync</button>
     </nav>
   </header>
 
@@ -432,6 +433,38 @@
             <tbody id="measurement-tbody"></tbody>
           </table>
           <p class="empty-msg" id="measurement-empty">No measurements logged yet — fill in whichever body parts you measured, leave the rest blank.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SYNC ===================== -->
+    <section id="view-sync" class="view">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Cross-Device Sync</h2>
+          <p>Connect a GitHub Gist as private cloud storage so your phone and computer share the same data.</p>
+        </div>
+
+        <div id="sync-disconnected">
+          <ol class="sync-steps">
+            <li>Go to <strong>github.com/settings/tokens/new</strong> (GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)).</li>
+            <li>Name it anything, set an expiration you're comfortable with, and check <strong>only</strong> the <code>gist</code> scope — nothing else.</li>
+            <li>Generate it, copy the token, and paste it below.</li>
+          </ol>
+          <form id="sync-connect-form" class="inline-form">
+            <input type="password" id="sync-token-input" placeholder="GitHub token (gist scope)" autocomplete="off" style="flex:1;min-width:220px;">
+            <button type="submit" class="btn btn-primary">Connect</button>
+          </form>
+          <p class="sync-note">The token is stored only in this browser and used to talk directly to GitHub's API — it never touches this app's source or repo. Do the same on your other device with the same token to link them.</p>
+        </div>
+
+        <div id="sync-connected" hidden>
+          <div class="sync-status" id="sync-status-line">Not synced yet.</div>
+          <div class="controls-row">
+            <button type="button" class="btn btn-primary" id="btn-sync-now">Sync Now</button>
+            <button type="button" class="btn btn-ghost" id="btn-sync-disconnect">Disconnect</button>
+          </div>
+          <p class="sync-note">Syncs automatically a couple seconds after any change, and every time you open the app. Use "Sync Now" to force it.</p>
         </div>
       </div>
     </section>
