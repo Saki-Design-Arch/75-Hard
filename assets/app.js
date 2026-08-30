@@ -288,13 +288,19 @@
   });
 
   document.getElementById("btn-restart").addEventListener("click", () => {
-    if (!confirm("Restart the 75 Hard challenge? This clears all day checkmarks and starts a new attempt from today.")) return;
+    if (!confirm("Restart the 75 Hard challenge and the Day to Day program? This clears all day checkmarks, workout progress, and progress photos, and starts both back at Day 1 from today. Your sync connection is not affected.")) return;
+    const today = todayISO();
     state.attempt += 1;
-    state.startDate = todayISO();
+    state.startDate = today;
     state.days = {};
+    state.dayPhotos = {};
+    state.programStartDate = today;
+    state.dayTasks = {};
     save();
     startDateInput.value = state.startDate;
+    programStartInput.value = state.programStartDate;
     renderTracker();
+    renderDayToDay();
   });
 
   function toggleDayRule(dayNum, ruleKey) {
