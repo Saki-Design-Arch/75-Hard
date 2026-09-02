@@ -136,6 +136,7 @@
       },
       dayPhotos: {},
       programStartDate: yesterdayISO(),
+      dayOverride: null,
       dayTasks: {
         [yesterdayISO()]: {
           main: { 0: true, 1: true, 2: true, 3: true, 4: true },
@@ -485,8 +486,26 @@
   }
 
   function programCycleDay() {
+    if (state.dayOverride) return state.dayOverride;
     const diff = daysBetween(state.programStartDate, todayISO());
     return (((diff % 7) + 7) % 7) + 1;
+  }
+
+  function autoCycleDay() {
+    const diff = daysBetween(state.programStartDate, todayISO());
+    return (((diff % 7) + 7) % 7) + 1;
+  }
+
+  function setDayOverride(day) {
+    state.dayOverride = day === autoCycleDay() ? null : day;
+    save();
+    renderDayToDay();
+  }
+
+  function clearDayOverride() {
+    state.dayOverride = null;
+    save();
+    renderDayToDay();
   }
 
   function currentPhase() {
@@ -524,7 +543,32 @@
     document.getElementById("phase-status").innerHTML =
       `<strong>Week ${week} · Phase ${phase.phase} — ${escapeHtml(phase.name)}</strong><br>${escapeHtml(phase.focus)}`;
 
-    document.getElementById("today-session-title").textContent = `Today — Day ${session.day}: ${session.name}`;
+    const isOverride = !!state.dayOverride;
+    const auto = autoCycleDay();
+
+    const picker = document.getElementById("day-picker");
+    picker.innerHTML = "";
+    WEEKLY_PROGRAM.forEach((s) => {
+      const pill = document.createElement("button");
+      pill.type = "button";
+      pill.className = "day-pill" + (cycleDay === s.day ? " active" : "");
+      pill.textContent = "Day " + s.day;
+      pill.addEventListener("click", () => setDayOverride(s.day));
+      picker.appendChild(pill);
+    });
+    const autoPill = document.createElement("button");
+    autoPill.type = "button";
+    autoPill.className = "day-pill auto" + (!isOverride ? " active" : "");
+    autoPill.textContent = "Auto (Day " + auto + ")";
+    autoPill.addEventListener("click", clearDayOverride);
+    picker.appendChild(autoPill);
+
+    const noteEl = document.getElementById("day-picker-note");
+    noteEl.textContent = isOverride
+      ? `Manually viewing Day ${cycleDay} — today would normally be Day ${auto}. Your progress still logs against today's date.`
+      : "";
+
+    document.getElementById("today-session-title").textContent = (isOverride ? "Day " : "Today — Day ") + session.day + ": " + session.name;
     document.getElementById("today-session-emphasis").textContent = session.emphasis;
 
     const body = document.getElementById("today-session-body");
@@ -618,6 +662,7 @@
       const tr = document.createElement("tr");
       if (s.day === cycleDay) tr.className = "today-row";
       tr.innerHTML = `<td>Day ${s.day}</td><td>${escapeHtml(s.name)}</td><td>${escapeHtml(s.emphasis)}</td>`;
+      tr.addEventListener("click", () => setDayOverride(s.day));
       weekTbody.appendChild(tr);
     });
   }
