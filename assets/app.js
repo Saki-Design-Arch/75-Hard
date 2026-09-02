@@ -661,7 +661,8 @@
     WEEKLY_PROGRAM.forEach((s) => {
       const tr = document.createElement("tr");
       if (s.day === cycleDay) tr.className = "today-row";
-      tr.innerHTML = `<td>Day ${s.day}</td><td>${escapeHtml(s.name)}</td><td>${escapeHtml(s.emphasis)}</td>`;
+      const activities = s.main.map((m) => m.ex).join(", ");
+      tr.innerHTML = `<td>Day ${s.day}</td><td>${escapeHtml(s.name)}</td><td>${escapeHtml(activities)}</td>`;
       tr.addEventListener("click", () => setDayOverride(s.day));
       weekTbody.appendChild(tr);
     });
