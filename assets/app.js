@@ -123,52 +123,20 @@
   ];
 
   const todayISO = () => new Date().toISOString().slice(0, 10);
-  const yesterdayISO = () => new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   function defaultState() {
     return {
-      // Seeded one day back so a fresh load starts on Day 2 (Day 1 is already done).
-      startDate: yesterdayISO(),
+      startDate: todayISO(),
       attempt: 1,
-      // Day 1 seeded complete since it's already done.
-      days: {
-        1: { w1: true, w2: true, diet: true, water: true, reading: true, photo: true },
-      },
+      days: {},
       dayPhotos: {},
-      programStartDate: yesterdayISO(),
+      programStartDate: todayISO(),
       dayOverride: null,
-      dayTasks: {
-        [yesterdayISO()]: {
-          main: { 0: true, 1: true, 2: true, 3: true, 4: true },
-          nonNeg: { steps: true, mobility: true, sleep: true, protein: true, water: true },
-        },
-      },
-      prs: [
-        { id: uid(), exercise: "Push-ups (strict, max)", weight: null, weightUnit: "lb", sets: 1, reps: 10, date: "2026-08-16" },
-        { id: uid(), exercise: "Pull-ups", weight: null, weightUnit: "lb", sets: 1, reps: 0, date: "2026-08-16" },
-        { id: uid(), exercise: "Vertical Crunch (max reps)", weight: null, weightUnit: "lb", sets: 1, reps: 100, date: "2026-08-16" },
-        { id: uid(), exercise: "Smith Machine Squat", weight: null, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Romanian Deadlift", weight: 115, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Smith Machine Bench Press", weight: 125, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Dumbbell Bench Press", weight: 50, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Dumbbell Shoulder Press", weight: 40, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Lat Pulldown", weight: 100, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Seated Cable Row", weight: 135, weightUnit: "lb", sets: 1, reps: 5, date: "2026-08-16" },
-        { id: uid(), exercise: "Biceps Curl Machine", weight: 100, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
-        { id: uid(), exercise: "Leg Extension", weight: 80, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
-        { id: uid(), exercise: "Leg Curl", weight: 140, weightUnit: "lb", sets: 1, reps: 8, date: "2026-08-16" },
-      ],
-      endurance: [
-        { id: uid(), exercise: "Dead Hang", value: 10, unit: "sec", date: "2026-08-16" },
-        { id: uid(), exercise: "Hollow Hold", value: 25, unit: "sec", date: "2026-08-16" },
-        { id: uid(), exercise: "Wall Sit", value: 75, unit: "sec", date: "2026-08-16" },
-        { id: uid(), exercise: "1-Mile Run (AssaultRunner)", value: 11.8, unit: "min", date: "2026-08-16" },
-        { id: uid(), exercise: "2,000m Row", value: 8.4, unit: "min", date: "2026-08-16" },
-      ],
+      dayTasks: {},
+      prs: [],
+      endurance: [],
       workouts: [],
-      bodyweights: [
-        { id: uid(), date: "2026-08-21", value: 256.4, unit: "lb" },
-      ],
+      bodyweights: [],
       measurements: [],
       waterGoal: WATER_GOAL_DEFAULT,
       water: {},
