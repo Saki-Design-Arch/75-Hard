@@ -23,6 +23,8 @@ trust, or builds the list. Nothing gets filmed because it is trending.
 5. `references/growth-ladder.md` - what to post at this follower count and which CTA
    is live.
 6. `references/quality-bar.md` - retention mechanics and the pre post checklist.
+7. `references/date-miles-club.md` - the club charter, its arithmetic, the fixed rule,
+   and the launch sequence. Read it before writing anything that mentions the club.
 
 Voice inherits from ABY: `../../../aby/brand/voice.md` if the sibling repo is on disk.
 Bold not vulgar. Direct not disrespectful. Intense but uplifting. Convicting not

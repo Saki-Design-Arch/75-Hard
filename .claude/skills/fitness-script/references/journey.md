@@ -47,12 +47,46 @@ account. Nobody posts a real day one.
 
 ## Bodyweight
 
-| Date | Weight |
-|---|---|
-| 2026-08-21 | 256.4 lb |
+| Date | Weight | Source |
+|---|---|---|
+| day one, date to confirm | 257.6 lb | Saki's day one panel |
+| 2026-08-21 | 256.4 lb | tracker |
 
 Only logged weigh ins go in a video. If the tracker has no entry for this week, the
 script says `[WEIGHT TODAY]` and he fills it at the camera or the beat gets cut.
+
+## Day one measurement panel
+
+Given by Saki on 2026-09-13, labeled "Day 1." Full circumference panel, the before set
+for the six month retest.
+
+| Measure | Day one |
+|---|---|
+| Height | 6 ft |
+| Weight | 257.6 lb |
+| Chest | 125.5 cm |
+| Underbust | 112 cm |
+| Abs | 113.5 cm |
+| Waist | 118.5 cm |
+| Hips | 118 cm |
+| Butt | 124.5 cm |
+| Thigh | R 76.5 cm · L 73 cm |
+| Upper arm | R 44.5 cm · L 41 cm |
+| Calf | R 47 cm · L 47.5 cm |
+
+`CONFIRM the date.` The panel says day one, which reads as the program start,
+2026-08-16. The tracker has 256.4 lb logged on 2026-08-21, so 257.6 lb five days earlier
+is consistent with that. If the panel was actually taken today as a restart, this section
+moves to 2026-09-13 and the day one weight stays unknown. Until Saki says, no script uses
+257.6 as a current number - it is a starting number only.
+
+The asymmetries are worth knowing and worth saying on camera: right thigh 3.5 cm bigger
+than left, right arm 3.5 cm bigger than left, left calf 0.5 cm bigger than right. That is
+a real thing to train and a real thing to talk about, and it is the kind of detail that
+makes a viewer trust that the numbers were actually measured.
+
+Retest the full panel at every phase change. Same tape, same time of day, same
+conditions, or the comparison is worthless.
 
 ## Daily non negotiables
 
@@ -88,6 +122,12 @@ Named milestones worth their own video, in the order they will probably arrive:
 8. First 35 lb ruck, full hour
 9. Sub eight minute mile
 10. First full PT test attempt
+
+## Date Miles Club
+
+Written, dated to start in 2026, never stuck to. It is the offer the whole account is
+being built toward and it is also the account's best piece of honest content. The charter,
+the math on why it did not stick, and the fixed version are in `date-miles-club.md`.
 
 ## Chapter marks
 

@@ -3,6 +3,22 @@
 Ideas not yet scheduled. Move one into `scripts/` the moment it has a date. An idea
 that sits here for a month either becomes a script or gets deleted.
 
+## Date Miles Club
+
+The three part opening arc is written and scheduled: 2026-09-20, 09-21, 09-22. Part 3 is
+blocked on the ceiling decision. After that the club becomes daily content because the
+calendar writes the hook.
+
+| Idea | Waiting on | Format |
+|---|---|---|
+| Day 1, three miles, member number one | 2026-10-01 | Session Cut |
+| The 15th - last solo day | 2026-10-15 | Process |
+| First team day, whoever shows up | 2026-10-16 | Process |
+| First recovery pass used, no shame | The day he needs it | Honest Day |
+| The last day of the month, at the ceiling | End of month one | Process |
+| Month six personal marathon | 2027-03 | Chapter Mark |
+| Year end team marathon | End of the first full cycle | Chapter Mark |
+
 ## Waiting on a real moment
 
 | Idea | Waiting on | Format |
@@ -28,6 +44,10 @@ that sits here for a month either becomes a script or gets deleted.
 - The ten minutes of mobility nobody films
 - What I read on the days I do not want to train
 - The difference between a standard and a goal
+- The tape measure panel: every circumference on day one, read out loud
+- My right arm is 3.5 cm bigger than my left and here is what I do about it
+- Why I measure instead of only weighing
+- The date sets the distance: the club rule explained in fifteen seconds
 
 ## Comment and DM bank
 

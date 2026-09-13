@@ -55,14 +55,17 @@ the videos.
 hate running. Link's in the bio." Collect emails and phone numbers off platform,
 because an audience that only exists on TikTok is rented.
 
-**Date Miles Club, soft launch:**
-- Seed it inside Ruck Long and run videos, never as a standalone announcement.
-- First meet is small and local and gets filmed. Five people is a launch.
-- The offer is a mile, not a workout. Anyone can walk a mile. That is the entire point
-  and it is why it will work.
-- `CONFIRM` the exact shape with Saki: a mile walked or run with someone as the format
-  of a date or a meetup, a recurring local club, or a challenge people run on their
-  own and post. The CTA copy changes completely depending on which one it is.
+**Date Miles Club, open to people:**
+- The full charter, the arithmetic, and the launch sequence are in `date-miles-club.md`.
+  Read that file before writing any club copy.
+- The club launches before this stage, solo, because the charter makes days one through
+  fifteen solo by design. What unlocks at 10,000 is inviting people into it.
+- Team days are the ask: same miles, shared effort, in person or online. Three people is
+  a team. Five is a launch.
+- The pitch is the calendar, not a workout. "The date sets the distance." Anyone
+  understands it in four seconds, which is why it will travel.
+- Never invite people into a mileage rule that has not been checked. The month total gets
+  recalculated every time the rule changes.
 
 ## Stage 3 · Offer · 100,000 to 1,000,000
 
@@ -93,7 +96,7 @@ when a video does well.
 |---|---|
 | Under 1,000 | Nothing. Close forward, not with a request |
 | 1,000 to 10,000 | Follow, tied to a specific upcoming moment |
-| 10,000 to 100,000 | Join the list · Date Miles Club interest |
+| 10,000 to 100,000 | Join the list · Date Miles Club team days |
 | 100,000 plus | Training waitlist |
 
 Comments are the exception at every stage: asking a real question and answering it is

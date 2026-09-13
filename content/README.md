@@ -5,6 +5,10 @@ Where every video gets built before the camera turns on.
 The account: a 256 lb man rebuilding to Marine standard in public, day by day. The
 purpose: enough reach to open the Date Miles Club and bring personal training back.
 
+The club has its own file: `.claude/skills/fitness-script/references/date-miles-club.md`
+holds the charter, the arithmetic on why the first attempt never stuck, the fixed rule,
+and the launch sequence. Read it before writing any club copy.
+
 ## Layout
 
 ```
