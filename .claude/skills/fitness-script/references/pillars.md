@@ -51,29 +51,20 @@ slot and everything else shifts.
   is next week's B roll and it costs nothing to have.
 - Reply to comments for the first hour after posting, in words, not emojis.
 
-## Series worth running
+## Series
 
-A named series gets followed, a one off gets watched. Three running at once, no more. The club counts as one of the three and it is the one that does not stop.
+Ten series, each pulling from a different category of fitness TikTok, with a day one pilot
+for each. The full slate, what each one is, the pilot day shoot order grouped by setup, and
+the kill rule are in `content/series.md` at the repository root.
 
-**"Day X of getting to Marine standard from 258 pounds"** - the spine. Every Process
-post can carry the counter. The number climbing is itself a retention device.
+The spine is **The Standard · Day X** - the day counter climbing. It carries the account on
+its own and it is the last series to ever get cut.
 
-**"Zero pull ups"** - one every week until the first pull up lands, then the arc
-closes with a single video that will outperform everything before it.
+Ten is a pilot slate, not a schedule. Two weeks after the pilots, four survive: the Date
+Miles Club plus three chosen on watch time, saves and shares. Likes decide nothing.
 
-**"The mile"** - timed mile on camera at every retest. 11.8 is the opening number.
-Same framing, same shoes, same treadmill, so the progress is undeniable.
-
-**"Date Miles Club"** - the calendar writes the hook every single day. The date is the
-distance, the number on screen is the date, and the series never runs out of episodes.
-Opens with the three part honesty arc, then runs daily from 2026-10-01. Charter and rules
-in `date-miles-club.md`.
-
-**"What 2,100 calories looks like at 258 pounds"** - food content without a diet
-lecture, and the most searchable content on the list.
-
-Hold a series until the arc closes. The audience gets paid off at the end, and that
-payoff video is what crosses the account into a new tier.
+Hold a series until its arc closes. The audience gets paid off at the end, and that payoff
+video is what crosses the account into a new tier.
 
 ## What this account does not post
 

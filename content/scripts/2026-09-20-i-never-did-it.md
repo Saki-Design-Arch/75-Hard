@@ -1,12 +1,12 @@
 # 2026-09-20 · I wrote a club and never showed up to it
 
-**Program:** Day 36 · Week 6 · Phase 2 Base Building
+**Program:** Day 8 · Week 2 · Phase 1 Foundation and Ignition
 **Session:** Push Strength + Core (this is the second post of the day, not the session post)
 **Pillar:** Honesty
 **Format:** Honest Day
 **Target length:** 38 sec
 **Status:** ready to film
-**Series:** Date Miles Club, part 1 of 3
+**Series:** 4 · Date Miles Club, arc part 1 of 3
 
 ---
 

@@ -14,17 +14,28 @@ those places, it goes into a script as a bracket for Saki to fill, never as a gu
 | | |
 |---|---|
 | Program | Foundation Protocol - heavy calisthenics and Marine conditioning, self coached |
-| Program start | 2026-08-16 |
+| Day 1 | 2026-09-13 |
 | Length | Six months, reassessed every four weeks |
 | Phases | 1 Foundation and Ignition (wk 1 to 4) · 2 Base Building (wk 5 to 10) · 3 Marine Conditioning Build (wk 11 to 16) · 4 Performance and Tactical Fitness (wk 17 to 24) |
 | Training days | Six, one true rest day |
 
-## Day one baselines, 2026-08-16
+## Day 1 is 2026-09-13
 
-These are the honest starting line and they are the most valuable content on the
-account. Nobody posts a real day one.
+An earlier block was started 2026-08-16 and the baselines below were tested that day, but
+not one session of it was logged in the tracker. Saki called 2026-09-13 day one for
+everything: the program, the measurements, the content, and the club. That is the date the
+account counts from.
 
-| Test | Day one |
+Say "never logged," not "never trained," unless he confirms he did not train. The tracker
+shows no sessions. It does not show what happened.
+
+## Baselines, tested 2026-08-16
+
+The honest starting line, and the most valuable content on the account - nobody posts a
+real day one. These stand as the reference numbers until they are retested, and day 1
+retests them on camera, which is the single best use of a first day.
+
+| Test | Last tested 2026-08-16 |
 |---|---|
 | Push ups, strict max | 10 |
 | Pull ups | 0 |
@@ -66,9 +77,8 @@ script says `[WEIGHT TODAY]` and he fills it at the camera or the beat gets cut.
 
 ## Measurement panel · 2026-09-13
 
-Taken today, week 5 of the program, labeled day one because it is day one of measuring
-properly. This is the before set for every comparison from here on. The program itself
-still starts 2026-08-16 - the panel resets, the program day does not.
+Day 1. The full panel, and the before set for every comparison from here on. The scale was
+never going to be enough on its own and this is the fix.
 
 | Measure | 2026-09-13 |
 |---|---|
@@ -84,11 +94,9 @@ still starts 2026-08-16 - the panel resets, the program day does not.
 | Upper arm | R 44.5 cm · L 41 cm |
 | Calf | R 47 cm · L 47.5 cm |
 
-257.6 lb is a current number, not a starting number. There is no logged weight for
-2026-08-16, so the program has no true day one weight and no script should claim one. The
-earliest logged weigh in is 256.4 lb on 2026-08-21.
-
-Which means the honest read of the last three weeks is this: **up 1.2 lb in 23 days.**
+257.6 lb is the day 1 number and the one every future weigh in gets measured against. The
+only earlier logged weight is 256.4 lb on 2026-08-21, three weeks before, which makes the
+honest read **up 1.2 lb over 23 days** on two data points. Not a trend. Two numbers.
 
 The asymmetries are worth knowing and worth saying on camera: right thigh 3.5 cm bigger
 than left, right arm 3.5 cm bigger than left, left calf 0.5 cm bigger than right. That is
@@ -118,7 +126,8 @@ believable to a 250 lb viewer who also has something that hurts.
 
 ## The arc the account is documenting
 
-Day one: 256 lb, zero pull ups, an 11.8 minute mile.
+Day 1, 2026-09-13: 258 lb, zero pull ups, ten push ups, a ten second dead hang, and a
+mile last timed at 11.8 minutes.
 
 Where it is going: first pull up, sub nine minute mile, sub eight, eventually a mile
 under six. Loaded rucks at 25 to 35 lb. A Marine PT test standard. The weight is a
@@ -139,7 +148,7 @@ Named milestones worth their own video, in the order they will probably arrive:
 
 ## Date Miles Club
 
-Written, dated to start in 2026, never stuck to. It is the offer the whole account is
+Written, dated to start in 2026, never stuck to. Launches 2026-10-01. It is the offer the whole account is
 being built toward and it is also the account's best piece of honest content. The charter,
 the math on why it did not stick, and the fixed version are in `date-miles-club.md`.
 
@@ -147,11 +156,13 @@ the math on why it did not stick, and the fixed version are in `date-miles-club.
 
 | Mark | Date | What it is |
 |---|---|---|
-| Program start | 2026-08-16 | Day one, baselines tested |
+| Baselines tested | 2026-08-16 | An unlogged block, the numbers still stand |
+| Day 1 | 2026-09-13 | Panel taken, series slate filmed, the count starts |
+| Date Miles Club day 1 | 2026-10-01 | One mile, member number one |
 | Phase 2 opens | week 5 | Volume climbs, pull up progression gets serious, run intervals begin |
 | Phase 3 opens | week 11 | Rucks, carries, PT circuits, tempo running |
 | Phase 4 opens | week 17 | Advanced calisthenics, plyos, speed work |
-| Six month retest | week 24 | Every day one number retested on camera, one video |
+| Six month retest | week 24, about 2027-03-14 | Every day 1 number retested on camera, one video |
 
 The week 24 retest video is the single most important video this account will post in
 its first year. Every day one number on screen next to the new one. Film the baselines

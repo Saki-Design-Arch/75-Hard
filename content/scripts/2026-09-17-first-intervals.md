@@ -1,26 +1,26 @@
-# 2026-09-17 · Eleven minutes and forty eight seconds
+# 2026-09-17 · First intervals since the test
 
-**Program:** Day 33 · Week 5 · Phase 2 Base Building
+**Program:** Day 5 · Week 1 · Phase 1 Foundation and Ignition
 **Session:** Conditioning B - Run Progression
 **Pillar:** Proof
 **Format:** Number Check
 **Target length:** 28 sec
 **Status:** ready to film
-**Series:** The mile
+**Series:** 1 · The Standard · Day X
 
 ---
 
 ## Hook · 0 to 3 sec
 
-**Say:** "My mile was eleven minutes and forty eight seconds."
-**On screen:** MILE: 11:48
+**Say:** "I timed my mile on day one. Today I am not running a mile."
+**On screen:** DAY 5 · INTERVALS
 
 ## Beats
 
 | Time | Say | On screen | Camera |
 |---|---|---|---|
-| 0 to 3 s | My mile was eleven minutes and forty eight seconds. | MILE: 11:48 | Close on the treadmill screen, then to the lens |
-| 3 to 10 s | That was day one, five weeks ago. Almost twelve minutes for one mile, and I needed the rest of the day back. | DAY ONE · 11:48 | Day one style framing, same machine, same angle |
+| 0 to 3 s | I timed my mile on day one. Today I am not running a mile. | DAY 5 · INTERVALS | Close on the treadmill screen, then to the lens |
+| 3 to 10 s | Day one it was `[DAY 1 MILE]`, and I needed the rest of the day back. That number is the whole point of running slower now. | DAY 1: [DAY 1 MILE] | Day one style framing, same machine, same angle |
 | 10 to 20 s | Today is not a mile. It is one minute running, two walking, eight times through. That is how you get to a mile you can actually hold. | 1 MIN RUN · 2 MIN WALK · x8 | Feet on the belt, then wide, sweat visible |
 | 20 to 25 s | Six minutes is the number at the end of this. Not this month. | GOAL: SUB 6:00 | Straight to lens, flat delivery |
 | 25 to 28 s | Slow is still a mile. | SLOW IS STILL A MILE | Walking it out |
@@ -35,7 +35,7 @@
 
 ## Caption
 
-Intervals, not heroics. The knees have to survive six months of this.
+Intervals, not heroics. Week one. The knees have to survive six months of this.
 
 ## Hashtags
 
@@ -60,8 +60,8 @@ Original audio. Belt and breathing.
 
 ## Numbers to confirm before filming
 
-- [ ] 11.8 min from the tracker reads as 11:48 on screen. Confirm the exact recorded
-      time before putting seconds on screen, otherwise the text says 11.8 MIN
+- [ ] `[DAY 1 MILE]` - the time from the day one test on 2026-09-13. Do not use the
+      2026-08-16 number of 11.8 min unless the day one retest did not happen
 - [ ] `[INTERVALS COMPLETED]` if the count gets stated
 
 ## Notes

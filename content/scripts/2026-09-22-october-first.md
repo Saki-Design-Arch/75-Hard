@@ -1,12 +1,12 @@
 # 2026-09-22 · Fixed version, and it starts October 1
 
-**Program:** Day 38 · Week 6 · Phase 2 Base Building
+**Program:** Day 10 · Week 2 · Phase 1 Foundation and Ignition
 **Session:** Pull Strength + Posterior Chain (second post of the day)
 **Pillar:** Identity
 **Format:** Chapter Mark
 **Target length:** 45 sec
 **Status:** ready to film
-**Series:** Date Miles Club, part 3 of 3
+**Series:** 4 · Date Miles Club, arc part 3 of 3
 
 ---
 

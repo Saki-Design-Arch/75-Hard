@@ -1,12 +1,12 @@
 # 2026-09-14 · Flat palm push ups cost me a month
 
-**Program:** Day 30 · Week 5 · Phase 2 Base Building
+**Program:** Day 2 · Week 1 · Phase 1 Foundation and Ignition
 **Session:** Conditioning A - Engine
 **Pillar:** Teaching
 **Format:** Hard Lesson
 **Target length:** 35 sec
 **Status:** ready to film
-**Series:** none
+**Series:** 6 · Big Guy Beginner, episode 2
 
 ---
 

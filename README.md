@@ -23,6 +23,7 @@ in public.
 
 ```
 content/README.md          The daily loop
+content/series.md          The ten series, their categories, and the pilot day plan
 content/scripts/           One file per video, ready to film
 content/backlog.md         Ideas waiting on a real moment
 content/performance-log.md What went out and what it did
@@ -34,9 +35,16 @@ script into `content/scripts/`.
 
 ## The arc
 
-Started 2026-08-16 with ten push ups, zero pull ups, an 11.8 minute mile, and a 2,784
-step a day baseline. First full measurement panel 2026-09-13 at 257.6 lb. Going to Marine
-PT standard in six months, in public, on camera, every day.
+**Day 1 is 2026-09-13.** 257.6 lb, ten push ups, zero pull ups, a ten second dead hang, a
+mile last timed at 11.8 minutes, and a 2,784 step a day baseline. Going to Marine PT
+standard in six months, in public, on camera, every day.
+
+An earlier block started 2026-08-16 and the baselines were tested then, but no session of it
+was ever logged. Day 1 is the date the count runs from.
+
+Note for the tracker: the program start date lives in browser storage, so open the Day to
+Day tab and set **Program start date** to 2026-09-13. The code default is already there,
+but a browser that already has saved state keeps the old date until it is changed by hand.
 
 The reach is not the goal. It is what opens the Date Miles Club, which launches
 2026-10-01, and brings personal training back.

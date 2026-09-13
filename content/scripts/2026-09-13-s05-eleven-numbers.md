@@ -1,6 +1,6 @@
 # 2026-09-13 · I gained a pound and I could not tell you if I lost an inch
 
-**Program:** Day 29 · Week 5 · Phase 2 Base Building
+**Program:** Day 1 · Week 1 · Phase 1 Foundation and Ignition
 **Session:** Push Strength + Core (second post of the day)
 **Pillar:** Honesty and Teaching
 **Format:** Number Check

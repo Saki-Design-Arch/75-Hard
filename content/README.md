@@ -12,11 +12,15 @@ and the launch sequence. Read it before writing any club copy.
 ## Layout
 
 ```
+series.md           The ten series, their categories, cadence, and the pilot day plan
 scripts/            One file per video, ready to film. YYYY-MM-DD-slug.md
 scripts/TEMPLATE.md The shape every script follows
 backlog.md          Ideas that are not scheduled yet
 performance-log.md  What went out and what it actually did
 ```
+
+**Day 1 is 2026-09-13.** Ten series, ten pilots, all dated that day. Shoot order grouped by
+setup and the posting order are both in `series.md` - do not dump ten videos in one day.
 
 ## The daily loop
 
