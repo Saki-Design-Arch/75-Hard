@@ -2,7 +2,7 @@
 
 Where every video gets built before the camera turns on.
 
-The account: a 256 lb man rebuilding to Marine standard in public, day by day. The
+The account: a man rebuilding from 258 pounds to Marine standard in public, day by day. The
 purpose: enough reach to open the Date Miles Club and bring personal training back.
 
 The club has its own file: `.claude/skills/fitness-script/references/date-miles-club.md`

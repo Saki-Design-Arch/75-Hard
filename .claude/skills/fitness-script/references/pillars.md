@@ -13,7 +13,7 @@ reason someone comes back tomorrow.
 that hurt. The rarest pillar on fitness TikTok and the one that builds the deepest
 trust. Never skipped for image management.
 
-**4. Identity** - why a 256 lb man is doing this at all. Straight to lens, short,
+**4. Identity** - why a man at 258 pounds is doing this at all. Straight to lens, short,
 quiet, no music swell. This is the pillar that converts a viewer into someone who
 follows a person instead of watching a clip. Ends with the signature line.
 
@@ -55,7 +55,7 @@ slot and everything else shifts.
 
 A named series gets followed, a one off gets watched. Three running at once, no more. The club counts as one of the three and it is the one that does not stop.
 
-**"Day X of getting to Marine standard at 256 pounds"** - the spine. Every Process
+**"Day X of getting to Marine standard from 258 pounds"** - the spine. Every Process
 post can carry the counter. The number climbing is itself a retention device.
 
 **"Zero pull ups"** - one every week until the first pull up lands, then the arc
@@ -69,7 +69,7 @@ distance, the number on screen is the date, and the series never runs out of epi
 Opens with the three part honesty arc, then runs daily from 2026-10-01. Charter and rules
 in `date-miles-club.md`.
 
-**"What 2,100 calories looks like at 256 pounds"** - food content without a diet
+**"What 2,100 calories looks like at 258 pounds"** - food content without a diet
 lecture, and the most searchable content on the list.
 
 Hold a series until the arc closes. The audience gets paid off at the end, and that

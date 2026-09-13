@@ -6,7 +6,7 @@ hook is not a trick, it is the truth stated bluntly.
 
 ## The laws
 
-1. **Say the number.** "I weigh 256 pounds" beats "I'm overweight" every time. Specific
+1. **Say the number.** "I weigh 258 pounds" beats "I'm overweight" every time. Specific
    is believable, vague is scrollable.
 2. **Lead with the worst fact.** The weakness is the hook. Zero pull ups is more
    interesting than any goal he could state.
@@ -25,7 +25,7 @@ hook is not a trick, it is the truth stated bluntly.
 |---|---|---|
 | Flat confession | "I [embarrassing fact]." | "I can't do a single pull up." |
 | Number gap | "[Bad number]. [Target number]. [Timeframe]." | "11.8 minute mile. Goal is six. Six months." |
-| Day counter | "Day [X] of [hard thing] at [stat]." | "Day 29 of training for Marine standard at 256 pounds." |
+| Day counter | "Day [X] of [hard thing] at [stat]." | "Day 29 of training for Marine standard at 258 pounds." |
 | Opposite expectation | "Everyone says [X]. I did [Y]." | "Everyone starts with running. I started with a 10 second dead hang." |
 | Cost reveal | "[Mistake] cost me [real cost]." | "Flat palm push ups cost me a month of wrist pain." |
 | Mid action | Starts inside the hardest rep, no intro | Camera opens on the failing rep, voice comes in after |
@@ -41,7 +41,7 @@ hook is not a trick, it is the truth stated bluntly.
 - "My mile was 11 minutes 48 seconds. Watch."
 - "Dead hang, day one: 10 seconds. Ten. Seconds."
 - "I tested every number on day one so I couldn't lie to myself later."
-- "This is what a 5 pound drop actually looks like at 256."
+- "This is what a 5 pound drop actually looks like at 258."
 - "The scale went the wrong way and I'm still posting it."
 - "First time the bar didn't win."
 
@@ -71,7 +71,7 @@ hook is not a trick, it is the truth stated bluntly.
 
 - "I stopped waiting to feel ready. That was the whole change."
 - "Nobody is coming. That's not sad, that's freedom."
-- "I'm 256 pounds and I'm not embarrassed. I'm early."
+- "I'm 258 pounds and I'm not embarrassed. I'm early."
 - "You're not lazy. You've just never been given a standard."
 - "The version of me that quits has been in charge long enough."
 - "I'm not building a body. I'm building someone who finishes things."

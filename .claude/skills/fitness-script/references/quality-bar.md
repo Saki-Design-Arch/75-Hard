@@ -35,6 +35,13 @@ Any no means rewrite, not patch.
 feel it" gets a like and changes nothing. When a line sits near that border, it is
 condemning. Rewrite it.
 
+## Round against yourself
+
+The panel reads 257.6 lb, so the spoken number is 258, never 257. Same rule for every
+number on this account: a time rounds up, a rep count rounds down, a distance rounds down.
+Never round in the direction that flatters him. It costs nothing and it is the difference
+between a number people trust and a number people check.
+
 ## Banned moves
 
 Fearmongering. Fake excitement. Corporate language. Forced slang. False urgency. Shame

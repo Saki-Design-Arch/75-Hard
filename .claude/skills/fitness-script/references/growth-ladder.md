@@ -55,7 +55,7 @@ the videos.
 hate running. Link's in the bio." Collect emails and phone numbers off platform,
 because an audience that only exists on TikTok is rented.
 
-**Date Miles Club, open to people:**
+**Date Miles Club, open to people:** launched 2026-10-01 with one member, by design.
 - The full charter, the arithmetic, and the launch sequence are in `date-miles-club.md`.
   Read that file before writing any club copy.
 - The club launches before this stage, solo, because the charter makes days one through

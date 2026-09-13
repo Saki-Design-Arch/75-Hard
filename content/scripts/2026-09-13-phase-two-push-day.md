@@ -6,7 +6,7 @@
 **Format:** Session Cut
 **Target length:** 30 sec
 **Status:** ready to film
-**Series:** Day X of getting to Marine standard at 256 pounds
+**Series:** Day X of getting to Marine standard from 258 pounds
 
 ---
 

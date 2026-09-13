@@ -32,7 +32,7 @@ calendar writes the hook.
 
 ## Ready to write anytime
 
-- What 2,100 calories looks like at 256 pounds
+- What 2,100 calories looks like at 258 pounds
 - Why phase 1 had almost no running in it
 - The wrist: how pressing works when flat palms are out
 - Every number I tested on day one, and why I filmed it

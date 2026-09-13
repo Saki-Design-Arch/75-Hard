@@ -5,7 +5,7 @@
 **Pillar:** Identity
 **Format:** Chapter Mark
 **Target length:** 45 sec
-**Status:** draft - blocked on the ceiling decision
+**Status:** ready to film
 **Series:** Date Miles Club, part 3 of 3
 
 ---
@@ -20,10 +20,10 @@
 | Time | Say | On screen | Camera |
 |---|---|---|---|
 | 0 to 3 s | Same club. One rule changed. It starts October 1. | STARTS OCTOBER 1 | Straight to lens, standing, ready |
-| 3 to 14 s | The date still sets the distance. Up to `[CEILING]` miles. Below that the calendar rules. Above it, the day is `[CEILING]`. That is the whole fix. | THE DATE SETS THE DISTANCE, UP TO [CEILING] | On screen text doing the work, plain |
-| 14 to 24 s | `[MONTH TOTAL]` miles a month instead of 496. Double what I walk now. Finishable by me at 257 pounds, and finishable by anybody who joins, which is the only test that matters. | [MONTH TOTAL] MI/MONTH | Walking while talking, handheld |
+| 3 to 14 s | The date still sets the distance. Up to three miles. Below three the calendar rules. Above it, the day is three. That is the whole fix. | THE DATE SETS THE DISTANCE, UP TO 3 MILES | On screen text doing the work, plain |
+| 14 to 24 s | Ninety miles a month instead of 496. Double what I walk now. Finishable by me at 258 pounds, and finishable by anybody who joins, which is the only test that matters. | 90 MI/MONTH, NOT 496 | Walking while talking, handheld |
 | 24 to 34 s | Everything else stays. Solo the first fifteen days. Team days after. Two recovery passes, because pacing is part of the plan and not a failure. Marathon in month six. | SOLO 1-15 · TEAM 16-END | B roll of the walk, feet, road, morning |
-| 34 to 41 s | The first fifteen days are solo by design, so I do not need anybody to start. October 1, three miles, day one. I am member number one. | OCT 1 · MEMBER NUMBER ONE | Straight to lens |
+| 34 to 41 s | The first fifteen days are solo by design, so I do not need anybody to start. October 1, one mile, because the first is the first. I am member number one. | OCT 1 · MEMBER NUMBER ONE | Straight to lens |
 | 41 to 45 s | The date is waiting. Your identity is your greatest strength. Always Be Yourself. | ALWAYS BE YOURSELF | Hold, cut on the line |
 
 ## Close
@@ -62,16 +62,18 @@ Original audio. If anything sits underneath it stays nearly inaudible.
 
 ## Numbers to confirm before filming
 
-- [ ] `[CEILING]` - Saki's decision. Recommended 3 mi for year one
-- [ ] `[MONTH TOTAL]` - follows from the ceiling. 3 mi ceiling is 90 mi/month,
-      4 is 118, 5 is 145. Table is in the club reference file
-- [ ] 257 lb - uses the day one panel number, and only as a starting number
+- [ ] Ceiling is 3 mi for year one, decided 2026-09-13. Climbs a mile each quarter
+- [ ] 90 mi for a 31 day month, 87 for 30, 81 for 28 - all verified
+- [ ] 496 mi was the original 31 day month total - verified
+- [ ] 258 lb from the 2026-09-13 panel, 257.6 rounded against himself
+- [ ] October 1 is a Thursday. Day one is one mile, not three
 
 ## Notes
 
-Blocked until the ceiling is set. Do not film with a placeholder - the rule stated on
-camera is the rule people will hold him to, and changing it after publishing costs more
-than waiting three days.
+The rule stated on camera is the rule people will hold him to. It is set now, so it does
+not move: the date sets the distance, up to three miles. The ceiling climbing a mile each
+quarter is real but it does not belong in this video - it is next year's content and
+saying it now makes the video about the future instead of about October 1.
 
 The commitment is the video. No hype, no countdown, no "who's with me." He states what he
 is doing and the date he starts. People join a man who is already walking.

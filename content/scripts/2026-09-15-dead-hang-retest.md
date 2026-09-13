@@ -34,7 +34,7 @@
 
 ## Caption
 
-256 pounds hanging off a bar. The whole pull up starts here.
+258 pounds hanging off a bar. The whole pull up starts here.
 
 ## Hashtags
 

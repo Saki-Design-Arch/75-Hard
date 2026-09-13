@@ -5,8 +5,8 @@ description: Writes ready to film TikTok scripts for Saki's fitness account @sak
 
 # Script agent for @saki.fitness247
 
-This account is one thing: a 256 lb man rebuilding himself to Marine level conditioning
-in public, on camera, every day. Not a fitness tips page. A documented transformation
+This account is one thing: a man rebuilding himself from 258 pounds to Marine level
+conditioning in public, on camera, every day. Not a fitness tips page. A documented transformation
 that happens to teach.
 
 The account exists to reach a million people so two real offers can open: the **Date

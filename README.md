@@ -34,8 +34,9 @@ script into `content/scripts/`.
 
 ## The arc
 
-Started 2026-08-16 at 256 lb, ten push ups, zero pull ups, an 11.8 minute mile. Going
-to Marine PT standard in six months, in public, on camera, every day.
+Started 2026-08-16 with ten push ups, zero pull ups, an 11.8 minute mile, and a 2,784
+step a day baseline. First full measurement panel 2026-09-13 at 257.6 lb. Going to Marine
+PT standard in six months, in public, on camera, every day.
 
-The reach is not the goal. It is what opens the Date Miles Club and brings personal
-training back.
+The reach is not the goal. It is what opens the Date Miles Club, which launches
+2026-10-01, and brings personal training back.

@@ -41,8 +41,8 @@ are the ABY voice without being told to be.
 
 ## Status, stated plainly
 
-Written. Dated to start in 2026. Never stuck to. As of 2026-09-13 it has not launched
-and has no members.
+Written, dated to start in 2026, never stuck to. The rule was fixed on 2026-09-13 and it
+launches 2026-10-01 with one member. It has never run a single day before that.
 
 ## The math
 
@@ -81,65 +81,110 @@ keep.
 That is not a reason to kill it. The concept is excellent - the calendar as the coach,
 nobody deciding today whether today counts. It needs one number changed.
 
-## The fix, three options
+## The rule, decided 2026-09-13
 
-Every option keeps the charter intact: the date still sets the distance, solo first half,
-team second half, two recovery passes, month six and the last day of the year.
+**The date sets the distance, up to three miles.**
 
-**Option A · The ceiling.** The date sets the distance up to a ceiling. Below the
-ceiling the calendar rules as written. At or above it, the day is the ceiling.
+Below three, the calendar rules exactly as written. At or above three, the day is three
+miles. Everything else in the charter stands untouched: solo days one through fifteen,
+team days from the sixteenth, three tiers, two recovery passes, month six and the year
+end marathon.
 
-| Ceiling | Miles per month | Daily average | Hardest day |
-|---|---|---|---|
-| 3 mi | 90 | 2.9 | 3 mi |
-| 4 mi | 118 | 3.8 | 4 mi |
-| 5 mi | 145 | 4.7 | 5 mi |
-| 6 mi | 171 | 5.5 | 6 mi |
-| 10 mi | 265 | 8.5 | 10 mi |
+| Month length | Miles | Daily average | Steps for the month | Hours at 3 mph |
+|---|---|---|---|---|
+| 28 days | 81 mi | 2.89 | about 162,000 | 27 |
+| 30 days | 87 mi | 2.90 | about 174,000 | 29 |
+| 31 days | 90 mi | 2.90 | about 180,000 | 30 |
 
-The ceiling can climb through the year, which turns the club into a progression instead
-of a wall. Start the year at 3, add a mile each quarter.
+90 miles instead of 496. Double his current walking, one hour a day at a walk, and
+finishable by anyone who joins - which was the only test that mattered.
 
-**Option B · Digit sum.** The date decides, digits and all. The 25th is 2 plus 5, so
-seven miles. The 31st is four miles. Hardest day in any month is the 29th at eleven
-miles. 172 miles a month, 5.5 a day.
+The two recovery passes only save four miles at this ceiling. That is fine. They exist
+for the rest, not for the arithmetic, and they stay in the charter for exactly that
+reason.
 
-Keeps the calendar poetry completely intact and needs no ceiling rule. The cost is that
-the number stops being obvious at a glance, and "if it is the 7th you move seven miles"
-is the line that makes the club understandable in four seconds.
+### The ceiling climbs a mile each quarter
 
-**Option C · Half the date.** Round up. The 31st is sixteen miles. 256 miles a month.
-Still a 16 mile day and still too much for a first year. Listed for completeness, not
-recommended.
+The club is a progression, not a wall. Year one, from the 2026-10-01 start:
 
-**Recommendation: Option A with a ceiling of 3 miles for year one.** 90 miles a month,
-2.9 a day. That is double his current baseline, it survives a six day training program,
-and it is finishable by a 257 lb beginner and by whoever joins, which is the actual test.
-The rule reads clean: *the date sets the distance, up to three miles.* Then the ceiling
-climbs as the club gets stronger, and that climb is itself a year of content.
+| Quarter | Ceiling | Monthly range |
+|---|---|---|
+| Oct to Dec 2026 | 3 mi | 87 to 90 mi |
+| Jan to Mar 2027 | 4 mi | 106 to 118 mi |
+| Apr to Jun 2027 | 5 mi | 140 to 145 mi |
+| Jul to Sep 2027 | 6 mi | 165 to 171 mi |
 
-Month six personal marathon and the year end team marathon stay untouched. Those are
-supposed to hurt.
+Year one totals 1,541 miles. Nobody needs to be told that number on day one. It is the
+kind of thing that is better discovered in month eleven.
 
-## Launch plan
+### What was rejected, and why
 
-**Do not wait for January.** The club is date driven, so any first of the month works,
-and the next one is **2026-10-01**. Eighteen days out from today. Waiting until January
-2027 costs a quarter of a year to gain nothing.
+**No ceiling, the charter as written.** 496 miles in a 31 day month. The reason it never
+stuck. Recorded in full above.
 
-Month one runs solo by design - the charter already says days one through fifteen are
-solo, which means the club can launch with exactly one member and be running correctly.
-Team days from the 16th run online with whoever is there. Three people is a team.
+**Digit sum**, where the 25th is two plus five. 172 miles a month, hardest day eleven
+miles. Kept the calendar poetry but cost the four second explanation, and "if it is the
+7th you move seven miles" is the line that makes the club understandable instantly.
 
-Sequence:
+**Half the date, rounded up.** 256 miles a month and still a sixteen mile day. Too much
+for a first year.
 
-1. **Now to 2026-09-30** - post the arc below. Fix the ceiling. Set the rule in writing.
-2. **2026-10-01** - day one, three miles, on camera. He is member number one.
-3. **Month one** - solo half filmed daily. Team half open to anyone in the comments who
-   asks. No link, no list, no ask - the account is under 1,000 followers.
-4. **10,000 followers** - the list opens and the club becomes a real CTA.
-5. **Month six, 2027-03** - personal marathon, filmed. This is a landmark video.
-6. **2026-12-31 or the year end of the first full cycle** - team marathon.
+## Where the miles already exist
+
+The club sits on top of a six day training program, so the honest question is how much of
+it is new work. At a 3 mph walk:
+
+| Program day | Session | Club miles already inside it |
+|---|---|---|
+| Sun · cycle 1 | Push Strength + Core | none, the club miles are extra |
+| Mon · cycle 2 | Conditioning A, Engine | none that count - the charter says run or walk, so the bike and the rower do not |
+| Tue · cycle 3 | Pull Strength | none, extra |
+| Wed · cycle 4 | Marine PT Circuit | none, extra |
+| Thu · cycle 5 | Run Progression | about 1.2 to 1.4 mi from the run and walk intervals |
+| Fri · cycle 6 | Long Ruck | about 2.3 to 3.0 mi, so a ceiling day is nearly covered |
+| Sat · cycle 7 | Rest, active recovery | about 1.0 to 1.5 mi from the easy walk |
+
+So three or four days a week carry a full extra hour of walking, and three days are
+partly or fully covered. That is the real cost of the club and it should be said out loud
+on camera rather than discovered in week two.
+
+One good side effect: the club replaces the vague "hit step target" non negotiable with a
+number the calendar hands him every morning. Three miles is about 6,000 steps before
+anything else in the day.
+
+The miles need logging somewhere from day one. Two data points in four weeks is what
+happened to his bodyweight, and an unlogged club is how the first attempt disappeared
+without anyone noticing, himself included.
+
+## Launch
+
+**2026-10-01.** Not January. The club is date driven, so any first of a month works, and
+waiting for the calendar year would cost a quarter of a year to gain nothing.
+
+Month one runs solo by design - the charter already makes days one through fifteen solo,
+which means the club launches correctly with exactly one member in it. Team days from the
+16th run online with whoever is there. Three people is a team.
+
+| Date | What happens |
+|---|---|
+| 2026-09-20 to 09-22 | The three part arc posts. The rule goes on the record |
+| 2026-10-01 | Day one. One mile. Lands on a Thursday, cycle day 5, run progression day - the club's first day is already a training day |
+| 2026-10-03 | First ceiling day, three miles |
+| 2026-10-15 | Last solo day of month one |
+| 2026-10-16 | First team day. Online, whoever answers |
+| 2026-10-31 | Month one closes at 90 miles |
+| 2026-12-31 | A team day at the ceiling, three miles. Not a marathon - see below |
+| 2027-01-01 | Ceiling goes to four |
+| 2027-03 | Month six. Personal marathon, filmed |
+| 2027-09-30 | Last day of the club year. Team marathon |
+
+The charter says the last day of the year is a team marathon. With an October start that
+lands on 2027-09-30, the end of the first full club year, not 2026-12-31 - a team
+marathon three months in would sit before the month six personal marathon and break the
+progression. Saki can override that, but the order matters more than the calendar.
+
+At 10,000 followers the club becomes the account's only ask. Until then he is walking it
+alone and saying so.
 
 ## How it shows up in content
 
@@ -152,7 +197,7 @@ The club is not an announcement. It is a series with an ending.
 2. *The math is why.* 496 miles a month. Show the number. The failure was design, not
    character. This video teaches something real and nobody else on fitness TikTok is
    doing the arithmetic out loud.
-3. *Here is the fixed version and the date it starts.* The ceiling, the rule, October 1.
+3. *Here is the fixed version and the date it starts.* Three miles, the rule stated plainly, October 1.
 
 **Then, ongoing:** every club day is a Process post with the date as the hook. The 14th
 is fourteen. The calendar writes the hook for free, 365 days a year, which is the most

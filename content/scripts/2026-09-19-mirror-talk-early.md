@@ -12,14 +12,14 @@
 
 ## Hook · 0 to 3 sec
 
-**Say:** "I am 256 pounds and I am not behind. I am early."
+**Say:** "I am 258 pounds and I am not behind. I am early."
 **On screen:** NOT BEHIND. EARLY.
 
 ## Beats
 
 | Time | Say | On screen | Camera |
 |---|---|---|---|
-| 0 to 3 s | I am 256 pounds and I am not behind. I am early. | NOT BEHIND. EARLY. | Straight to lens, still, no movement in frame |
+| 0 to 3 s | I am 258 pounds and I am not behind. I am early. | NOT BEHIND. EARLY. | Straight to lens, still, no movement in frame |
 | 3 to 12 s | Five weeks ago I could do ten push ups and zero pull ups, and I filmed all of it on purpose so I could never rewrite the start. | 10 PUSH UPS · 0 PULL UPS | Same shot, no cut, no music swell |
 | 12 to 18 s | The man who quits has had the job for years. He is not getting it back because I stopped asking him for permission. | | Same shot, quieter delivery |
 | 18 to 22 s | Do one thing today you would be proud to have on camera. Your identity is your greatest strength. Always Be Yourself. | ALWAYS BE YOURSELF | Hold, then cut on the line, no fade |
@@ -55,8 +55,8 @@ no drop.
 
 ## Numbers to confirm before filming
 
-- [ ] `[WEIGHT TODAY]` if the opening number gets updated - otherwise 256 stands,
-      logged 2026-08-21
+- [ ] 258 comes from the 2026-09-13 panel, 257.6 lb, rounded against himself. If a newer
+      weigh in is logged before filming, use that one
 
 ## Notes
 

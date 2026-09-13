@@ -49,18 +49,28 @@ account. Nobody posts a real day one.
 
 | Date | Weight | Source |
 |---|---|---|
-| day one, date to confirm | 257.6 lb | Saki's day one panel |
-| 2026-08-21 | 256.4 lb | tracker |
+| 2026-08-21 | 256.4 lb | tracker, earliest logged weigh in |
+| 2026-09-13 | 257.6 lb | measurement panel |
+
+Two data points in four weeks is not a trend, it is two numbers. **Weigh in weekly, same
+morning, same conditions, and log it** - otherwise the account cannot tell a story about
+the scale, and neither can he. This is the single highest value habit to add right now and
+it costs thirty seconds.
+
+The +1.2 lb does not get hidden, spun, or explained with a mechanism nobody measured. It
+gets posted, the plan stays the same, and the next weigh in is the answer. No claims about
+water, glycogen, or muscle gain unless something actually measured them.
 
 Only logged weigh ins go in a video. If the tracker has no entry for this week, the
 script says `[WEIGHT TODAY]` and he fills it at the camera or the beat gets cut.
 
-## Day one measurement panel
+## Measurement panel · 2026-09-13
 
-Given by Saki on 2026-09-13, labeled "Day 1." Full circumference panel, the before set
-for the six month retest.
+Taken today, week 5 of the program, labeled day one because it is day one of measuring
+properly. This is the before set for every comparison from here on. The program itself
+still starts 2026-08-16 - the panel resets, the program day does not.
 
-| Measure | Day one |
+| Measure | 2026-09-13 |
 |---|---|
 | Height | 6 ft |
 | Weight | 257.6 lb |
@@ -74,11 +84,11 @@ for the six month retest.
 | Upper arm | R 44.5 cm · L 41 cm |
 | Calf | R 47 cm · L 47.5 cm |
 
-`CONFIRM the date.` The panel says day one, which reads as the program start,
-2026-08-16. The tracker has 256.4 lb logged on 2026-08-21, so 257.6 lb five days earlier
-is consistent with that. If the panel was actually taken today as a restart, this section
-moves to 2026-09-13 and the day one weight stays unknown. Until Saki says, no script uses
-257.6 as a current number - it is a starting number only.
+257.6 lb is a current number, not a starting number. There is no logged weight for
+2026-08-16, so the program has no true day one weight and no script should claim one. The
+earliest logged weigh in is 256.4 lb on 2026-08-21.
+
+Which means the honest read of the last three weeks is this: **up 1.2 lb in 23 days.**
 
 The asymmetries are worth knowing and worth saying on camera: right thigh 3.5 cm bigger
 than left, right arm 3.5 cm bigger than left, left calf 0.5 cm bigger than right. That is
@@ -86,7 +96,11 @@ a real thing to train and a real thing to talk about, and it is the kind of deta
 makes a viewer trust that the numbers were actually measured.
 
 Retest the full panel at every phase change. Same tape, same time of day, same
-conditions, or the comparison is worthless.
+conditions, or the comparison is worthless. Next panel: start of Phase 3, week 11.
+
+The tape matters more than the scale here. At 257 lb, training six days a week, the waist
+can drop while the scale sits still, and that is the exact situation where most people
+quit. The panel is the insurance against quitting over one number.
 
 ## Daily non negotiables
 

@@ -20,7 +20,7 @@
 | Time | Say | On screen | Camera |
 |---|---|---|---|
 | 0 to 3 s | Flat palm push ups wrecked my left wrist. | THE WRIST MISTAKE | Close on the wrist, flexing it slowly |
-| 3 to 12 s | At 256 pounds, every push up puts most of me through two joints that never signed up for it. Mine complained. I kept going. That is the actual mistake. | 256 LB THROUGH TWO WRISTS | Demo the flat palm position, then stop short of loading it |
+| 3 to 12 s | At 258 pounds, every push up puts most of me through two joints that never signed up for it. Mine complained. I kept going. That is the actual mistake. | 258 LB THROUGH TWO WRISTS | Demo the flat palm position, then stop short of loading it |
 | 12 to 24 s | Now I press on my fists or on bars. Same muscles, neutral wrist, no bend under load. Pike push ups on parallettes instead of the floor. Dips shallow until they are pain free. | FISTS · BARS · PARALLETTES | Three quick demo clips, each one held long enough to copy |
 | 24 to 32 s | I did not train around it to be careful. I trained around it because a month off costs more than any single session is worth. | A MONTH OFF COSTS MORE | Mid shot, on the bike mid session, still moving |
 | 32 to 35 s | If something hurts every rep, the answer is a different angle, not a longer warm up. | | Straight to lens |
