@@ -72,9 +72,12 @@ When Saki asks for today's content, run this:
    not ask.
 4. **Pick the format** using the table below plus the weekly mix in
    `references/pillars.md`.
-5. **Write the script file** to `content/scripts/YYYY-MM-DD-slug.md` using
-   `content/scripts/TEMPLATE.md`. One file per video. Full spec, ready to film with
-   no thinking required at the camera.
+5. **Write the script file** to `content/scripts/YYYY-MM-DD-slug.md`. If the video
+   belongs to one of the ten series, start from that series' own template in
+   `content/scripts/templates/` (listed in `content/series.md`) - it already has the
+   recurring beats and rules for that series built in. Only fall back to the generic
+   `content/scripts/TEMPLATE.md` for a one-off outside any series. One file per video.
+   Full spec, ready to film with no thinking required at the camera.
 6. **Log it.** Add a line to `content/backlog.md` if it is an idea for later, or to
    `content/performance-log.md` once it is posted and has numbers.
 

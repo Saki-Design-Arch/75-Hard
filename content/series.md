@@ -10,18 +10,30 @@ hold and which ones the audience answers, then cut to four. The kill rule is at 
 
 ## The slate
 
-| # | Series | Category it pulls from | Pillar | Cadence once live | Pilot |
-|---|---|---|---|---|---|
-| 1 | **The Standard · Day X** | Transformation documentary, daily log | Process | Daily | `2026-09-13-s01-day-one.md` |
-| 2 | **Zero Pull Ups** | Calisthenics skill progression | Proof | Weekly until it closes | `2026-09-13-s02-zero-pull-ups.md` |
-| 3 | **The Mile** | Running, couch to 5k | Proof | Retest monthly | `2026-09-13-s03-the-mile.md` |
-| 4 | **Date Miles Club** | Run clubs, challenge communities | Community | Daily from 2026-10-01 | `2026-09-13-s04-date-miles-club.md` |
-| 5 | **Eleven Numbers** | Progress tracking, data, body recomp | Proof and Honesty | Weekly scale, full panel per phase | `2026-09-13-s05-eleven-numbers.md` |
-| 6 | **Big Guy Beginner** | Form checks, modifications, beginner tutorial | Teaching | Two or three a week | `2026-09-13-s06-big-guy-beginner.md` |
-| 7 | **Twenty One Hundred** | What I eat in a day, macros | Teaching | Twice a week | `2026-09-13-s07-twenty-one-hundred.md` |
-| 8 | **The Ruck Hour** | Rucking, tactical fitness, walking | Process | Weekly, long form | `2026-09-13-s08-ruck-hour.md` |
-| 9 | **Marine Standard** | Military PT, tactical standards | Teaching and Proof | Weekly | `2026-09-13-s09-marine-standard.md` |
-| 10 | **Always Be Yourself** | Motivational, identity | Identity | Twice a week | `2026-09-13-s10-always-be-yourself.md` |
+| # | Series | Category it pulls from | Pillar | Cadence once live | Pilot | Template |
+|---|---|---|---|---|---|---|
+| 1 | **The Standard · Day X** | Transformation documentary, daily log | Process | Daily | `2026-09-13-s01-day-one.md` | `templates/01-the-standard.md` |
+| 2 | **Zero Pull Ups** | Calisthenics skill progression | Proof | Weekly until it closes | `2026-09-13-s02-zero-pull-ups.md` | `templates/02-zero-pull-ups.md` |
+| 3 | **The Mile** | Running, couch to 5k | Proof | Retest monthly | `2026-09-13-s03-the-mile.md` | `templates/03-the-mile.md` |
+| 4 | **Date Miles Club** | Run clubs, challenge communities | Community | Daily from 2026-10-01 | `2026-09-13-s04-date-miles-club.md` | `templates/04-date-miles-club.md` |
+| 5 | **Eleven Numbers** | Progress tracking, data, body recomp | Proof and Honesty | Weekly scale, full panel per phase | `2026-09-13-s05-eleven-numbers.md` | `templates/05-eleven-numbers.md` |
+| 6 | **Big Guy Beginner** | Form checks, modifications, beginner tutorial | Teaching | Two or three a week | `2026-09-13-s06-big-guy-beginner.md` | `templates/06-big-guy-beginner.md` |
+| 7 | **Twenty One Hundred** | What I eat in a day, macros | Teaching | Twice a week | `2026-09-13-s07-twenty-one-hundred.md` | `templates/07-twenty-one-hundred.md` |
+| 8 | **The Ruck Hour** | Rucking, tactical fitness, walking | Process | Weekly, long form | `2026-09-13-s08-ruck-hour.md` | `templates/08-the-ruck-hour.md` |
+| 9 | **Marine Standard** | Military PT, tactical standards | Teaching and Proof | Weekly | `2026-09-13-s09-marine-standard.md` | `templates/09-marine-standard.md` |
+| 10 | **Always Be Yourself** | Motivational, identity | Identity | Twice a week | `2026-09-13-s10-always-be-yourself.md` | `templates/10-always-be-yourself.md` |
+
+## Templates
+
+Each series has a fixed recurring shape - `scripts/templates/` holds one file per series
+with that shape pre-built: the beats that repeat every episode, the on screen text
+patterns, the series-specific rules, and brackets for what changes. The generic
+`scripts/TEMPLATE.md` is the fallback for a one-off that isn't part of any series (or for
+the two reactive series below, which borrow their shape straight from `formats.md`
+instead - Answer Cut and Honest Day respectively).
+
+Writing episode 2 or later of a series starts from its template, not from a blank page or
+from the generic template - that's the whole point of building one per series.
 
 ## Two reactive series with no pilot
 
