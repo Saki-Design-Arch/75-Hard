@@ -68,7 +68,7 @@ Novelty is at its peak and so is your reach ceiling. Spend it establishing stake
 
 Post: the contract reveal, clause readings, baseline measurements, Day 1 photos, "why we did this," the tattoo clause in particular. End every video with *"follow so you see who loses."*
 
-**Day 1 is the most important video of the entire 100 days.** Film it today. Structure: stakes in the first 2 seconds → show the signed contract → read Clause 7 (the tattoo) → baselines → "see you on day 100."
+**Day 1 is the most important video of the entire 100 days.** Structure: stakes in the first 2 seconds → show the signed contract → read Clause 7 (the tattoo) → baselines → "see you on day 100." Shoot it on Sept 13 itself — a reveal posted late reads as an afterthought.
 
 ### Phase 2 · THE BUILD — Days 11–30 (Sep 23–Oct 12)
 Novelty is gone, routine isn't formed yet. This is where the real personality shows up.
@@ -172,6 +172,6 @@ Post: countdown, final measurements, scoring, the mindset assessments, and the D
 ## 7. To fill in
 
 - Whether your girlfriend is posting on her own account (cross-tagging doubles reach on every joint video)
-- Your Day 1 baseline photos and the nine measurements from Clause 8 — film these *today*, they're unrepeatable
+- Your Day 1 baseline photos and the nine measurements from Clause 8 — capture these on Sept 13 at the latest; they're unrepeatable once the challenge is underway
 - Where the shared Clause 20 log lives (Strava naming gets you most of the way)
 - Your Clause 14 personal goal — that's a content thread in itself
