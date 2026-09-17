@@ -801,6 +801,214 @@ body {
   display: block;
 }
 
+.weight-rate {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.weight-rate .rate-good { color: var(--good); }
+.weight-rate .rate-warn { color: var(--accent); }
+.weight-rate .rate-dim { color: var(--text-dim); font-weight: 500; }
+
+.chart-legend {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin: -4px 0 16px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.legend-swatch.avg { background: var(--accent); height: 3px; }
+.legend-swatch.raw { background: var(--text-dim); opacity: .5; height: 6px; width: 6px; border-radius: 50%; }
+
+/* ---- pain flags ---- */
+.pain-flags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pain-pill {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pain-pill:hover {
+  border-color: var(--bad);
+  color: var(--text);
+}
+
+.pain-pill.active {
+  background: var(--bad);
+  border-color: var(--bad);
+  color: #fff;
+}
+
+.adapted-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--bad);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  vertical-align: middle;
+}
+
+/* ---- autoregulated progression ---- */
+.progress-log-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 10px 30px;
+  margin-top: -4px;
+}
+
+.progress-log-row input {
+  width: 90px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.progress-log-row .btn {
+  padding: 7px 14px;
+  font-size: 12.5px;
+}
+
+.progress-logged {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 10px 30px;
+  margin-top: -4px;
+  font-size: 12.5px;
+  color: var(--good);
+  font-weight: 600;
+}
+
+.progress-logged .btn-icon {
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+/* ---- recalc banner ---- */
+.recalc-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.recalc-banner-text h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: var(--accent);
+}
+
+.recalc-banner-text p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-dim);
+  max-width: 560px;
+}
+
+.recalc-banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ---- progress charts ---- */
+.progress-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.progress-chart-card {
+  background: var(--bg-elev-2);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.progress-chart-card h4 {
+  margin: 0 0 2px;
+  font-size: 13px;
+}
+
+.progress-chart-card .pc-latest {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.progress-chart-card .pc-latest span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.progress-chart-card svg {
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
+.progress-chart-empty {
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 10px 0;
+}
+
+/* ---- toast ---- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--good);
+  color: #05170d;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .footer {
   text-align: center;
   color: var(--text-dim);
