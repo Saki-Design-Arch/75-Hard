@@ -30,12 +30,15 @@
     { key: "water", label: "Water 150–180 oz", detail: "Log ounces in the Water tab" },
   ];
 
-  const NUTRITION_TARGETS = [
-    { label: "Calories (Phase 1–2)", value: "2,100–2,250 kcal/day" },
-    { label: "Protein", value: "180–200 g/day" },
-    { label: "Fat", value: "70–80 g/day minimum" },
-    { label: "Water", value: "150–180 oz/day" },
-  ];
+  function nutritionTargetTiles() {
+    const t = state.nutritionTargets;
+    return [
+      { label: "Calories", value: `${t.calMin}–${t.calMax} kcal/day` },
+      { label: "Protein", value: `${t.proteinMin}–${t.proteinMax} g/day` },
+      { label: "Fat", value: `${t.fatMin}–${t.fatMax} g/day minimum` },
+      { label: "Water", value: "150–180 oz/day" },
+    ];
+  }
 
   const WEEKLY_PROGRAM = [
     {
@@ -43,11 +46,11 @@
       emphasis: "Calisthenics push patterns, wrist-safe pressing, hollow body",
       warmup: ["2 min easy pace on the treadmill or stationary bike", "Band pull-aparts x15, arm circles x10/direction — resistance band station", "Gentle wrist circles — stay pain-free on the left wrist"],
       main: [
-        { ex: "Push-ups", detail: "4 x max (leave 2 in reserve) — floor or gym mats; baseline is 10 strict" },
-        { ex: "Pike Push-ups", detail: "3 x 8–10 — hands on floor, hips piked up; use push-up bars/parallettes if flat-palm loads the wrist" },
+        { ex: "Push-ups", detail: "4 x max (leave 2 in reserve) — floor or gym mats; baseline is 10 strict", progress: { metric: "reps", baseline: 10, increment: 1, logExercise: "Push-ups (strict, max)" }, altWrist: "4 x max on fists or push-up bars/dumbbell handles (leave 2 in reserve) — keeps the wrist neutral" },
+        { ex: "Pike Push-ups", detail: "3 x 8–10 — hands on floor, hips piked up; use push-up bars/parallettes if flat-palm loads the wrist", altWrist: "3 x 8–10 — same pike position, but on fists or push-up bars/parallettes instead of flat palms" },
         { ex: "Bench/Chair Dips", detail: "3 x 8 — flat bench, or the assisted dip machine (light assistance); shallow range early, deepen only if pain-free" },
-        { ex: "Hollow Body Hold", detail: "3 x max, build from 25s — on a mat; target 45–60s by end of Phase 2" },
-        { ex: "Incline Push-ups (finisher)", detail: "2 x max — hands on a flat bench, feet on floor" },
+        { ex: "Hollow Body Hold", detail: "3 x max, build from 25s — on a mat; target 45–60s by end of Phase 2", progress: { metric: "sec", baseline: 25, increment: 3, logExercise: "Hollow Hold" } },
+        { ex: "Incline Push-ups (finisher)", detail: "2 x max — hands on a flat bench, feet on floor", altWrist: "2 x max — fists or push-up bars on the bench edge" },
       ],
       cooldown: ["Chest/shoulder doorway stretch, 30s/side — stretching area", "Wrist flexor/extensor stretch — gentle, weight-bearing preferred"],
     },
@@ -56,8 +59,8 @@
       emphasis: "Cardio machine (treadmill, bike, or rower) — building your aerobic base",
       warmup: ["2–3 min very easy pace on your chosen machine, to ramp heart rate gradually", "Ankle circles and hip circles x10/direction, a few bodyweight squats to prime the knee"],
       main: [
-        { ex: "Zone 2 Steady State (Wks 1–4)", detail: "20–25 min, pick one: Treadmill incline walk (incline 8–10%, 3.0–3.5 mph) · Stationary Bike (resistance 8–12, cadence 70–85 rpm) · Rower (~2:15–2:30 /500m split). Zone 2 = you can hold a conversation but couldn't sing." },
-        { ex: "Add Intervals, 1x/week (Wks 5–10)", detail: "Same machine, 8 rounds: 1 min hard (treadmill 4.5–5.5 mph, or bike resistance 15+, or rower ~1:50–2:00 /500m) / 2 min easy at your Zone 2 pace above" },
+        { ex: "Zone 2 Steady State (Wks 1–4)", detail: "20–25 min, pick one: Treadmill incline walk (incline 8–10%, 3.0–3.5 mph) · Stationary Bike (resistance 8–12, cadence 70–85 rpm) · Rower (~2:15–2:30 /500m split). Zone 2 = you can hold a conversation but couldn't sing.", altKnee: "20–25 min, Rower or Stationary Bike only (skip the treadmill) — same Zone 2 pace: you can hold a conversation but couldn't sing" },
+        { ex: "Add Intervals, 1x/week (Wks 5–10)", detail: "Same machine, 8 rounds: 1 min hard (treadmill 4.5–5.5 mph, or bike resistance 15+, or rower ~1:50–2:00 /500m) / 2 min easy at your Zone 2 pace above", altKnee: "Rower or Bike only, 8 rounds: 1 min hard (bike resistance 15+, or rower ~1:50–2:00 /500m) / 2 min easy at your Zone 2 pace" },
         { ex: "Alternate & Build (Wk 11+)", detail: "Alternate a steady-state day and an interval day week to week; build the steady-state session up to 35–40 min total" },
       ],
       cooldown: ["2–3 min easy pace taper on the same machine", "Standing quad stretch and calf stretch, 30s/side"],
@@ -67,9 +70,9 @@
       emphasis: "Dead hangs, negatives, rows, hamstring/glute work",
       warmup: ["Scapular shrugs on the pull-up bar x10", "Dead hangs x2 short holds"],
       main: [
-        { ex: "Dead Hang", detail: "4 x max time — pull-up bar or lat pulldown bar; baseline 10s → target 30–45s by Phase 2" },
+        { ex: "Dead Hang", detail: "4 x max time — pull-up bar or lat pulldown bar; baseline 10s → target 30–45s by Phase 2", progress: { metric: "sec", baseline: 10, increment: 3, logExercise: "Dead Hang" } },
         { ex: "Scapular Pulls", detail: "4 x 5 — from a dead hang on the pull-up bar, pull shoulder blades down/back without bending elbows" },
-        { ex: "Negative Pull-ups", detail: "4 x 3–5 — use a step/box to jump to chin-over-bar, lower for a full 5 seconds" },
+        { ex: "Negative Pull-ups", detail: "4 x 3–5 — use a step/box to jump to chin-over-bar, lower for a full 5 seconds", progress: { metric: "reps", baseline: 3, increment: 1, logExercise: "Negative Pull-ups" } },
         { ex: "Inverted Rows", detail: "4 x 8–10 — bar set at hip height in the Smith machine or squat rack, or the TRX/suspension trainer" },
         { ex: "Assisted Pull-up Machine", detail: "3 x 5 — set the counterweight to offset ~50–70% of bodyweight; introduce once negatives feel controlled (~Phase 2)" },
         { ex: "Glute Bridges", detail: "3 x 12 — floor, or shoulders on a bench for a bigger range; posterior chain + knee-safe hip strength" },
@@ -82,10 +85,10 @@
       emphasis: "Full-body tactical circuit — squats, carries, core, controlled tempo",
       warmup: ["5 min easy cardio (bike or incline treadmill walk)", "Bodyweight squats x10, gentle leg swings — don't force end range cold"],
       main: [
-        { ex: "Squats", detail: "x15 — bodyweight, or hold a pair of light dumbbells goblet-style; controlled tempo, knee tracks over 2nd/3rd toe, no inward collapse" },
+        { ex: "Squats", detail: "x15 — bodyweight, or hold a pair of light dumbbells goblet-style; controlled tempo, knee tracks over 2nd/3rd toe, no inward collapse", altKnee: "x15 — bodyweight only, partial range (comfortable depth only), slow and controlled — stop short of any pinch" },
         { ex: "Push-ups", detail: "x10 — strict, chest to floor" },
         { ex: "Mountain Climbers", detail: "x20 — moderate pace on a mat" },
-        { ex: "Step-ups", detail: "x10/leg — a flat bench or the Stairmaster's fixed step, moderate height" },
+        { ex: "Step-ups", detail: "x10/leg — a flat bench or the Stairmaster's fixed step, moderate height", altKnee: "x10/leg — lowest step height available, slow and controlled, full foot planted before standing up" },
         { ex: "Plank Shoulder Taps", detail: "x20 — on a mat, hips stay square, minimal rock" },
         { ex: "Farmer's Carry", detail: "40m — a heavy pair of dumbbells, walk the turf or open floor area" },
       ],
@@ -97,10 +100,10 @@
       emphasis: "Treadmill run/walk intervals building toward the mile goal",
       warmup: ["5 min brisk walk on the treadmill to raise core temperature", "Dynamic leg swings, ankle circles", "Light high knees / butt kicks x20m, then a couple relaxed strides"],
       main: [
-        { ex: "Run/Walk Intervals (Wks 1–6)", detail: "Treadmill, 2x/week: 1 min jog @ 5.0–5.5 mph / 2 min walk @ 3.0 mph x8 → goal is a comfortable 20-min continuous walk-jog" },
-        { ex: "Build the Jog (Wks 7–12)", detail: "Treadmill: 2 min jog @ 5.5–6.0 mph / 1 min walk @ 3.0 mph, plus 1 continuous easy jog/week @ 5.0–5.5 mph → goal sub-9:00 mile" },
-        { ex: "Tempo + Repeats (Wks 13–20)", detail: "Treadmill tempo run (15–20 min @ 6.0–6.5 mph) plus 400m repeats (0.25 mi @ 7.0+ mph, 2 min walk between) → goal sub-8:00 mile" },
-        { ex: "Structured Speed Work (Wk 21+)", detail: "Treadmill track-style intervals — 6–8 x 400m @ 7.5+ mph with equal-time walk recovery, continued progress toward sub-6:00" },
+        { ex: "Run/Walk Intervals (Wks 1–6)", detail: "Treadmill, 2x/week: 1 min jog @ 5.0–5.5 mph / 2 min walk @ 3.0 mph x8 → goal is a comfortable 20-min continuous walk-jog", altKnee: "Knee's flagged — sub the whole session for 20–25 min on the Rower or Bike, Zone 2 effort, instead of running" },
+        { ex: "Build the Jog (Wks 7–12)", detail: "Treadmill: 2 min jog @ 5.5–6.0 mph / 1 min walk @ 3.0 mph, plus 1 continuous easy jog/week @ 5.0–5.5 mph → goal sub-9:00 mile", altKnee: "Knee's flagged — sub the whole session for 25–30 min on the Rower or Bike, moderate effort, instead of jogging" },
+        { ex: "Tempo + Repeats (Wks 13–20)", detail: "Treadmill tempo run (15–20 min @ 6.0–6.5 mph) plus 400m repeats (0.25 mi @ 7.0+ mph, 2 min walk between) → goal sub-8:00 mile", altKnee: "Knee's flagged — sub the whole session for a Bike or Rower interval workout (8 x 1 min hard / 2 min easy) instead of tempo/repeats" },
+        { ex: "Structured Speed Work (Wk 21+)", detail: "Treadmill track-style intervals — 6–8 x 400m @ 7.5+ mph with equal-time walk recovery, continued progress toward sub-6:00", altKnee: "Knee's flagged — sub the whole session for Bike or Rower sprint intervals (6–8 x 30s hard / 90s easy) instead of track work" },
       ],
       note: "Stop the running progression and lean on the bike or rower anytime the knee, shins, or hips complain.",
       cooldown: ["5 min easy walk on the treadmill to bring heart rate down", "Standing hamstring fold 45s, calf and hip flexor stretch 30s/side"],
@@ -110,7 +113,7 @@
       emphasis: "45–60 min loaded walk, full flexibility session",
       warmup: ["5 min easy walk without the pack", "Dynamic leg swings and ankle circles"],
       main: [
-        { ex: "Ruck / Hike", detail: "45–60 min outdoors with a weighted pack (10–15 lb → build to 25–35 lb by Phase 3). No safe route outside? Sub in a weighted vest + treadmill incline walk (incline 10–15%, 3.0 mph) for the same time." },
+        { ex: "Ruck / Hike", detail: "45–60 min outdoors with a weighted pack (10–15 lb → build to 25–35 lb by Phase 3). No safe route outside? Sub in a weighted vest + treadmill incline walk (incline 10–15%, 3.0 mph) for the same time.", altKnee: "Knee's flagged — drop the weight. 45–60 min easy unweighted walk outside or on the treadmill (incline 5–8%, 3.0 mph), pack/vest off until it settles" },
       ],
       cooldown: ["Deep squat hold work", "Hamstring PNF/contract-relax stretching", "90/90 hip stretch", "Gentle couch stretch", "Wrist flexion/extension within comfortable range"],
     },
@@ -146,6 +149,10 @@
       waterGoal: WATER_GOAL_DEFAULT,
       water: {},
       food: {},
+      painFlags: { wrist: false, knee: false },
+      nutritionTargets: { calMin: 2100, calMax: 2250, proteinMin: 180, proteinMax: 200, fatMin: 70, fatMax: 80 },
+      lastRecalcWeight: null,
+      recalcDismissedAt: null,
     };
   }
 
@@ -505,6 +512,143 @@
     renderDayToDay();
   }
 
+  // ---------------- Autoregulating Progression ----------------
+  // Reads/writes directly into state.prs / state.endurance so logged
+  // performance IS the permanent record — no separate history store,
+  // and every log is automatically checked against prior bests.
+  function progressableHistory(item) {
+    const { metric, logExercise } = item.progress;
+    const source = metric === "reps" ? state.prs : state.endurance;
+    const valueOf = metric === "reps" ? (r) => r.reps : (r) => r.value;
+    return source
+      .filter((r) => r.exercise === logExercise && valueOf(r) != null)
+      .map((r) => ({ date: r.date, value: valueOf(r) }))
+      .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  }
+
+  function progressTarget(item) {
+    const hist = progressableHistory(item);
+    if (!hist.length) return item.progress.baseline;
+    return hist[0].value + item.progress.increment;
+  }
+
+  function loggedToday(item) {
+    return progressableHistory(item).find((h) => h.date === todayISO());
+  }
+
+  function logProgress(item, rawValue) {
+    const value = parseFloat(rawValue);
+    if (!(value >= 0)) return;
+    const dateKey = todayISO();
+    const histBefore = progressableHistory(item).filter((h) => h.date !== dateKey);
+    const priorBest = histBefore.length ? Math.max(...histBefore.map((h) => h.value)) : null;
+
+    if (item.progress.metric === "reps") {
+      state.prs.push({ id: uid(), exercise: item.progress.logExercise, weight: null, weightUnit: "lb", sets: 1, reps: Math.round(value), date: dateKey });
+    } else {
+      state.endurance.push({ id: uid(), exercise: item.progress.logExercise, value, unit: "sec", date: dateKey });
+    }
+    save();
+    renderDayToDay();
+    renderPRs();
+    renderEndurance();
+    renderProgressCharts();
+
+    if (priorBest == null || value > priorBest) {
+      const unit = item.progress.metric === "reps" ? "reps" : "sec";
+      showToast(`🎉 New PR — ${item.ex}: ${value} ${unit}`);
+    }
+  }
+
+  function renderProgressRow(item, effectiveDetail, adapted) {
+    const wrap = document.createElement("div");
+    const already = loggedToday(item);
+    const target = progressTarget(item);
+    const hist = progressableHistory(item).filter((h) => h.date !== todayISO());
+    const unitLabel = item.progress.metric === "reps" ? "reps" : "sec";
+
+    const row = document.createElement("label");
+    row.className = "check-row" + (already ? " checked" : "");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = !!already;
+    checkbox.disabled = true;
+    row.appendChild(checkbox);
+    const label = document.createElement("span");
+    label.className = "check-label";
+    label.textContent = item.ex;
+    if (adapted) {
+      const tag = document.createElement("span");
+      tag.className = "adapted-tag";
+      tag.textContent = "adapted";
+      label.appendChild(tag);
+    }
+    row.appendChild(label);
+    const detail = document.createElement("span");
+    detail.className = "check-detail";
+    detail.textContent = already
+      ? `Logged today: ${already.value} ${unitLabel}`
+      : hist.length
+      ? `Last: ${hist[0].value} ${unitLabel} (${hist[0].date}) → today's target: ${target} ${unitLabel}`
+      : `No history yet → today's target: ${target} ${unitLabel} (baseline)`;
+    row.appendChild(detail);
+    wrap.appendChild(row);
+
+    if (effectiveDetail) {
+      const sub = document.createElement("p");
+      sub.className = "session-note";
+      sub.style.margin = "0 0 8px 30px";
+      sub.textContent = effectiveDetail;
+      wrap.appendChild(sub);
+    }
+
+    if (already) {
+      const loggedRow = document.createElement("div");
+      loggedRow.className = "progress-logged";
+      loggedRow.innerHTML = `<span>✓ Logged ${already.value} ${unitLabel} today</span>`;
+      const undoBtn = document.createElement("button");
+      undoBtn.type = "button";
+      undoBtn.className = "btn-icon";
+      undoBtn.textContent = "undo";
+      undoBtn.addEventListener("click", () => {
+        const dateKey = todayISO();
+        if (item.progress.metric === "reps") {
+          state.prs = state.prs.filter((p) => !(p.exercise === item.progress.logExercise && p.date === dateKey));
+        } else {
+          state.endurance = state.endurance.filter((r) => !(r.exercise === item.progress.logExercise && r.date === dateKey));
+        }
+        save();
+        renderDayToDay();
+        renderPRs();
+        renderEndurance();
+        renderProgressCharts();
+      });
+      loggedRow.appendChild(undoBtn);
+      wrap.appendChild(loggedRow);
+    } else {
+      const logRow = document.createElement("div");
+      logRow.className = "progress-log-row";
+      const numInput = document.createElement("input");
+      numInput.type = "number";
+      numInput.step = item.progress.metric === "reps" ? "1" : "1";
+      numInput.placeholder = `${unitLabel} done`;
+      numInput.value = target;
+      const logBtn = document.createElement("button");
+      logBtn.type = "button";
+      logBtn.className = "btn btn-primary";
+      logBtn.textContent = "Log";
+      logBtn.addEventListener("click", () => logProgress(item, numInput.value));
+      numInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") { e.preventDefault(); logProgress(item, numInput.value); }
+      });
+      logRow.appendChild(numInput);
+      logRow.appendChild(logBtn);
+      wrap.appendChild(logRow);
+    }
+
+    return wrap;
+  }
+
   function renderDayToDay() {
     const week = programWeekNumber();
     const cycleDay = programCycleDay();
@@ -515,6 +659,24 @@
 
     document.getElementById("phase-status").innerHTML =
       `<strong>Week ${week} · Phase ${phase.phase} — ${escapeHtml(phase.name)}</strong><br>${escapeHtml(phase.focus)}`;
+
+    const painFlagsEl = document.getElementById("pain-flags");
+    painFlagsEl.innerHTML = "";
+    [
+      { key: "wrist", label: "✋ Wrist flare-up" },
+      { key: "knee", label: "🦵 Knee flare-up" },
+    ].forEach((f) => {
+      const pill = document.createElement("button");
+      pill.type = "button";
+      pill.className = "pain-pill" + (state.painFlags[f.key] ? " active" : "");
+      pill.textContent = f.label;
+      pill.addEventListener("click", () => {
+        state.painFlags[f.key] = !state.painFlags[f.key];
+        save();
+        renderDayToDay();
+      });
+      painFlagsEl.appendChild(pill);
+    });
 
     const isOverride = !!state.dayOverride;
     const auto = autoCycleDay();
@@ -560,6 +722,14 @@
     const checklist = document.createElement("div");
     checklist.className = "checklist";
     session.main.forEach((item, idx) => {
+      const adapted = (state.painFlags.wrist && item.altWrist) || (state.painFlags.knee && item.altKnee);
+      const effectiveDetail = state.painFlags.wrist && item.altWrist ? item.altWrist : state.painFlags.knee && item.altKnee ? item.altKnee : item.detail;
+
+      if (item.progress) {
+        checklist.appendChild(renderProgressRow(item, effectiveDetail, adapted));
+        return;
+      }
+
       const checked = !!rec.main[idx];
       const row = document.createElement("label");
       row.className = "check-row" + (checked ? " checked" : "");
@@ -571,11 +741,17 @@
       const label = document.createElement("span");
       label.className = "check-label";
       label.textContent = item.ex;
+      if (adapted) {
+        const tag = document.createElement("span");
+        tag.className = "adapted-tag";
+        tag.textContent = "adapted";
+        label.appendChild(tag);
+      }
       row.appendChild(label);
-      if (item.detail) {
+      if (effectiveDetail) {
         const detail = document.createElement("span");
         detail.className = "check-detail";
-        detail.textContent = item.detail;
+        detail.textContent = effectiveDetail;
         row.appendChild(detail);
       }
       checklist.appendChild(row);
@@ -622,7 +798,7 @@
 
     const nutritionGrid = document.getElementById("nutrition-grid");
     nutritionGrid.innerHTML = "";
-    NUTRITION_TARGETS.forEach((n) => {
+    nutritionTargetTiles().forEach((n) => {
       const div = document.createElement("div");
       div.className = "nutrition-item";
       div.innerHTML = `<span class="n-label">${escapeHtml(n.label)}</span><span class="n-value">${escapeHtml(n.value)}</span>`;
@@ -644,6 +820,17 @@
   // ---------------- Fitness Records: Strength PRs ----------------
   document.getElementById("pr-date").value = todayISO();
 
+  function isNewStrengthPr(exercise, weight, reps) {
+    const prior = state.prs.filter((p) => p.exercise === exercise);
+    if (!prior.length) return true;
+    if (weight != null) {
+      const priorWeights = prior.filter((p) => p.weight != null).map((p) => p.weight);
+      return !priorWeights.length || weight > Math.max(...priorWeights);
+    }
+    const priorReps = prior.filter((p) => p.weight == null && p.reps != null).map((p) => p.reps);
+    return reps != null && (!priorReps.length || reps > Math.max(...priorReps));
+  }
+
   document.getElementById("pr-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const exercise = document.getElementById("pr-exercise").value.trim();
@@ -654,19 +841,25 @@
     const date = document.getElementById("pr-date").value || todayISO();
     if (!exercise) return;
 
+    const weightVal = weight ? parseFloat(weight) : null;
+    const repsVal = reps ? parseInt(reps, 10) : null;
+    const isPr = isNewStrengthPr(exercise, weightVal, repsVal);
+
     state.prs.push({
       id: uid(),
       exercise,
-      weight: weight ? parseFloat(weight) : null,
+      weight: weightVal,
       weightUnit,
       sets: sets ? parseInt(sets, 10) : null,
-      reps: reps ? parseInt(reps, 10) : null,
+      reps: repsVal,
       date,
     });
     save();
     e.target.reset();
     document.getElementById("pr-date").value = todayISO();
     renderPRs();
+    renderProgressCharts();
+    if (isPr) showToast(`🎉 New PR — ${exercise}`);
   });
 
   function renderPRs() {
@@ -703,6 +896,16 @@
   // ---------------- Fitness Records: Time & Endurance ----------------
   document.getElementById("end-date").value = todayISO();
 
+  function enduranceLowerIsBetter(exercise) {
+    return /run|mile|row|5k|10k|sprint|pace/i.test(exercise);
+  }
+
+  function isNewEndurancePr(exercise, value) {
+    const prior = state.endurance.filter((e) => e.exercise === exercise).map((e) => e.value);
+    if (!prior.length) return true;
+    return enduranceLowerIsBetter(exercise) ? value < Math.min(...prior) : value > Math.max(...prior);
+  }
+
   document.getElementById("endurance-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const exercise = document.getElementById("end-exercise").value.trim();
@@ -711,11 +914,16 @@
     const date = document.getElementById("end-date").value || todayISO();
     if (!exercise || !value) return;
 
-    state.endurance.push({ id: uid(), exercise, value: parseFloat(value), unit, date });
+    const valueNum = parseFloat(value);
+    const isPr = isNewEndurancePr(exercise, valueNum);
+
+    state.endurance.push({ id: uid(), exercise, value: valueNum, unit, date });
     save();
     e.target.reset();
     document.getElementById("end-date").value = todayISO();
     renderEndurance();
+    renderProgressCharts();
+    if (isPr) showToast(`🎉 New PR — ${exercise}`);
   });
 
   function renderEndurance() {
@@ -882,8 +1090,6 @@
   }
 
   // ---------------- Food Log ----------------
-  const FOOD_TARGETS = { calMin: 2100, calMax: 2250, proteinMin: 180, proteinMax: 200, fatMin: 70, fatMax: 80 };
-
   function addFoodEntry(date, entry) {
     if (!state.food[date]) state.food[date] = { entries: [] };
     state.food[date].entries.push({ id: uid(), ...entry });
@@ -961,14 +1167,18 @@
 
   function renderFood() {
     const totals = foodTotalsFor(todayISO());
+    const targets = state.nutritionTargets;
+
+    document.getElementById("food-target-line").textContent =
+      `Target: ${targets.calMin}–${targets.calMax} kcal · ${targets.proteinMin}–${targets.proteinMax}g protein · ${targets.fatMin}–${targets.fatMax}g fat minimum.`;
 
     const grid = document.getElementById("food-totals-grid");
     grid.innerHTML = "";
     const tiles = [
-      { label: "Calories", value: `${totals.calories} / ${FOOD_TARGETS.calMin}–${FOOD_TARGETS.calMax} kcal` },
-      { label: "Protein", value: `${totals.protein} / ${FOOD_TARGETS.proteinMin}–${FOOD_TARGETS.proteinMax} g` },
+      { label: "Calories", value: `${totals.calories} / ${targets.calMin}–${targets.calMax} kcal` },
+      { label: "Protein", value: `${totals.protein} / ${targets.proteinMin}–${targets.proteinMax} g` },
       { label: "Carbs", value: `${totals.carbs} g logged` },
-      { label: "Fat", value: `${totals.fat} / ${FOOD_TARGETS.fatMin}–${FOOD_TARGETS.fatMax}+ g` },
+      { label: "Fat", value: `${totals.fat} / ${targets.fatMin}–${targets.fatMax}+ g` },
       { label: "Sugar", value: `${totals.sugar} g logged` },
       { label: "Sodium", value: `${totals.sodium} mg logged` },
     ];
@@ -979,9 +1189,9 @@
       grid.appendChild(div);
     });
 
-    const pct = Math.max(0, Math.min(1, totals.calories / FOOD_TARGETS.calMax));
+    const pct = Math.max(0, Math.min(1, totals.calories / targets.calMax));
     document.getElementById("food-cal-fill").style.width = Math.round(pct * 100) + "%";
-    document.getElementById("food-cal-label").textContent = `${totals.calories} / ${FOOD_TARGETS.calMax} kcal`;
+    document.getElementById("food-cal-label").textContent = `${totals.calories} / ${targets.calMax} kcal`;
 
     const tbody = document.getElementById("food-tbody");
     const empty = document.getElementById("food-empty");
@@ -1062,6 +1272,7 @@
     });
 
     drawWeightChart();
+    renderRecalcBanner();
   }
 
   // ---------------- Body Measurements ----------------
@@ -1125,44 +1336,292 @@
     });
   }
 
-  function drawWeightChart() {
-    const svg = document.getElementById("weight-chart");
-    svg.innerHTML = "";
-    const points = [...state.bodyweights].sort((a, b) => (a.date > b.date ? 1 : -1));
-    if (points.length < 2) return;
-
-    const w = 600, h = 220, pad = 30;
-    const values = points.map((p) => p.value);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const range = max - min || 1;
-
-    const xStep = (w - pad * 2) / (points.length - 1);
-    const coords = points.map((p, i) => {
-      const x = pad + i * xStep;
-      const y = h - pad - ((p.value - min) / range) * (h - pad * 2);
-      return [x, y];
-    });
-
-    const pathD = coords.map((c, i) => (i === 0 ? "M" : "L") + c[0] + "," + c[1]).join(" ");
-
-    const ns = "http://www.w3.org/2000/svg";
-    const path = document.createElementNS(ns, "path");
-    path.setAttribute("d", pathD);
-    path.setAttribute("fill", "none");
-    path.setAttribute("stroke", "#ff5a3c");
-    path.setAttribute("stroke-width", "2.5");
-    svg.appendChild(path);
-
-    coords.forEach(([x, y]) => {
-      const circle = document.createElementNS(ns, "circle");
-      circle.setAttribute("cx", x);
-      circle.setAttribute("cy", y);
-      circle.setAttribute("r", "3.5");
-      circle.setAttribute("fill", "#ff5a3c");
-      svg.appendChild(circle);
+  // Trailing N-calendar-day average at each raw point's date, not just the
+  // last N entries — stays correct even if logging is irregular.
+  function movingAverage(points, windowDays) {
+    return points.map((p) => {
+      const cutoff = new Date(p.date + "T00:00:00");
+      cutoff.setDate(cutoff.getDate() - (windowDays - 1));
+      const cutoffStr = cutoff.toISOString().slice(0, 10);
+      const inWindow = points.filter((q) => q.date >= cutoffStr && q.date <= p.date);
+      const avg = inWindow.reduce((s, q) => s + q.value, 0) / inWindow.length;
+      return { date: p.date, value: avg };
     });
   }
+
+  // Least-squares slope in value-per-day across the raw points — the
+  // underlying trend rate, not swayed by any single noisy reading.
+  function linearRegressionSlope(points) {
+    const n = points.length;
+    if (n < 2) return 0;
+    const x0 = new Date(points[0].date + "T00:00:00").getTime();
+    const pts = points.map((p) => ({
+      x: (new Date(p.date + "T00:00:00").getTime() - x0) / 86400000,
+      y: p.value,
+    }));
+    const sumX = pts.reduce((s, p) => s + p.x, 0);
+    const sumY = pts.reduce((s, p) => s + p.y, 0);
+    const sumXY = pts.reduce((s, p) => s + p.x * p.y, 0);
+    const sumXX = pts.reduce((s, p) => s + p.x * p.x, 0);
+    const denom = n * sumXX - sumX * sumX;
+    if (denom === 0) return 0;
+    return (n * sumXY - sumX * sumY) / denom; // per day
+  }
+
+  function weeklyRateLb() {
+    const points = [...state.bodyweights].sort((a, b) => (a.date > b.date ? 1 : -1)).map((p) => ({ date: p.date, value: p.value }));
+    if (points.length < 2) return null;
+    return linearRegressionSlope(points) * 7;
+  }
+
+  function drawWeightChart() {
+    const svg = document.getElementById("weight-chart");
+    const empty = document.getElementById("weight-empty");
+    svg.innerHTML = "";
+    const points = [...state.bodyweights].sort((a, b) => (a.date > b.date ? 1 : -1)).map((p) => ({ date: p.date, value: p.value }));
+
+    const rateEl = document.getElementById("weight-rate");
+    if (points.length < 2) {
+      empty.style.display = "block";
+      rateEl.innerHTML = "";
+      return;
+    }
+    empty.style.display = "none";
+
+    const rate = weeklyRateLb();
+    const rateClass = rate == null ? "rate-dim" : rate <= -0.1 ? "rate-good" : rate >= 0.1 ? "rate-warn" : "rate-dim";
+    const rateText = rate == null ? "Log a few more entries to see a trend." : `${rate > 0 ? "+" : ""}${rate.toFixed(1)} lb/week (7-day trend)`;
+    rateEl.innerHTML = `<span class="${rateClass}">${escapeHtml(rateText)}</span>`;
+
+    const maPoints = movingAverage(points, 7);
+
+    const w = 600, h = 220, pad = 30;
+    const allValues = points.map((p) => p.value).concat(maPoints.map((p) => p.value));
+    const min = Math.min(...allValues);
+    const max = Math.max(...allValues);
+    const range = max - min || 1;
+
+    const t0 = new Date(points[0].date + "T00:00:00").getTime();
+    const t1 = new Date(points[points.length - 1].date + "T00:00:00").getTime();
+    const totalDays = Math.max((t1 - t0) / 86400000, 1);
+    const xFor = (date) => pad + ((new Date(date + "T00:00:00").getTime() - t0) / 86400000 / totalDays) * (w - pad * 2);
+    const yFor = (value) => h - pad - ((value - min) / range) * (h - pad * 2);
+
+    const ns = "http://www.w3.org/2000/svg";
+
+    // Raw points: faint dots, no connecting line — this is the noise.
+    points.forEach((p) => {
+      const circle = document.createElementNS(ns, "circle");
+      circle.setAttribute("cx", xFor(p.date));
+      circle.setAttribute("cy", yFor(p.value));
+      circle.setAttribute("r", "3");
+      circle.setAttribute("fill", "#9aa2b1");
+      circle.setAttribute("opacity", "0.45");
+      svg.appendChild(circle);
+    });
+
+    // 7-day moving average: the primary line — this is the signal.
+    const maPath = maPoints.map((p, i) => (i === 0 ? "M" : "L") + xFor(p.date) + "," + yFor(p.value)).join(" ");
+    const path = document.createElementNS(ns, "path");
+    path.setAttribute("d", maPath);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "#ff5a3c");
+    path.setAttribute("stroke-width", "3");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    svg.appendChild(path);
+  }
+
+  // ---------------- Auto Nutrition Recalc ----------------
+  function renderRecalcBanner() {
+    const wrap = document.getElementById("recalc-banner-wrap");
+    const banner = document.getElementById("recalc-banner");
+    const points = [...state.bodyweights].sort((a, b) => (a.date > b.date ? 1 : -1));
+    if (points.length < 2) { wrap.hidden = true; return; }
+
+    const ma = movingAverage(points.map((p) => ({ date: p.date, value: p.value })), 7);
+    const currentTrend = ma[ma.length - 1].value;
+    const baseline = state.lastRecalcWeight != null ? state.lastRecalcWeight : points[0].value;
+    const lost = baseline - currentTrend;
+
+    if (lost < 15) { wrap.hidden = true; return; }
+
+    const rate = weeklyRateLb() || 0;
+    const desiredMid = -1.25; // "1–1.5 lb/week" from the nutrition guidance, midpoint
+    const adjust = Math.round(((desiredMid - rate) * 500) / 25) * 25;
+    const newMin = state.nutritionTargets.calMin + adjust;
+    const newMax = state.nutritionTargets.calMax + adjust;
+
+    wrap.hidden = false;
+    banner.innerHTML = `
+      <div class="recalc-banner-text">
+        <h3>Time to recalculate — ${lost.toFixed(1)} lb down (trend)</h3>
+        <p>Actual pace: ${rate.toFixed(1)} lb/week. Based on that, your new target is ~${newMin}–${newMax} kcal/day to hold a steady 1–1.5 lb/week loss from here.</p>
+      </div>
+      <div class="recalc-banner-actions">
+        <button type="button" class="btn btn-primary" id="btn-recalc-apply">Apply New Target</button>
+        <button type="button" class="btn btn-ghost" id="btn-recalc-dismiss">Not Now</button>
+      </div>
+    `;
+
+    document.getElementById("btn-recalc-apply").addEventListener("click", () => {
+      state.nutritionTargets.calMin = newMin;
+      state.nutritionTargets.calMax = newMax;
+      state.lastRecalcWeight = currentTrend;
+      save();
+      renderFood();
+      renderDayToDay();
+      renderRecalcBanner();
+      showToast(`Target updated to ${newMin}–${newMax} kcal/day`);
+    });
+    document.getElementById("btn-recalc-dismiss").addEventListener("click", () => {
+      state.lastRecalcWeight = currentTrend;
+      save();
+      renderRecalcBanner();
+    });
+  }
+
+  // ---------------- Progress Charts ----------------
+  const PROGRESS_CHART_DEFS = [
+    { title: "Pull-ups", source: "prs", exercise: "Pull-ups", unit: "reps", getValue: (r) => r.reps },
+    { title: "Dead Hang", source: "endurance", exercise: "Dead Hang", unit: "sec", getValue: (r) => r.value },
+    { title: "Push-ups", source: "prs", exercise: "Push-ups (strict, max)", unit: "reps", getValue: (r) => r.reps },
+    { title: "1-Mile Run", source: "endurance", exercise: "1-Mile Run (AssaultRunner)", unit: "min", getValue: (r) => r.value, lowerIsBetter: true },
+  ];
+
+  function renderProgressCharts() {
+    const grid = document.getElementById("progress-charts-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
+
+    PROGRESS_CHART_DEFS.forEach((def) => {
+      const source = def.source === "prs" ? state.prs : state.endurance;
+      const points = source
+        .filter((r) => r.exercise === def.exercise)
+        .map((r) => ({ date: r.date, value: def.getValue(r) }))
+        .filter((p) => p.value != null)
+        .sort((a, b) => (a.date > b.date ? 1 : -1));
+
+      const card = document.createElement("div");
+      card.className = "progress-chart-card";
+
+      if (points.length < 2) {
+        card.innerHTML = `<h4>${escapeHtml(def.title)}</h4><p class="progress-chart-empty">Log this a couple more times to see the trend.</p>`;
+        grid.appendChild(card);
+        return;
+      }
+
+      const latest = points[points.length - 1];
+      const first = points[0];
+      const delta = latest.value - first.value;
+      const deltaText = delta === 0 ? "no change" : `${delta > 0 ? "+" : ""}${delta} ${def.unit} since ${first.date}`;
+
+      const h4 = document.createElement("h4");
+      h4.textContent = def.title;
+      const latestEl = document.createElement("div");
+      latestEl.className = "pc-latest";
+      latestEl.innerHTML = `${latest.value} <span>${escapeHtml(def.unit)} · ${escapeHtml(deltaText)}</span>`;
+      card.appendChild(h4);
+      card.appendChild(latestEl);
+
+      const svgNs = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(svgNs, "svg");
+      svg.setAttribute("viewBox", "0 0 300 90");
+      svg.setAttribute("preserveAspectRatio", "none");
+
+      const w = 300, h = 90, pad = 10;
+      const values = points.map((p) => p.value);
+      let min = Math.min(...values), max = Math.max(...values);
+      if (min === max) { min -= 1; max += 1; }
+      const range = max - min;
+      const xStep = (w - pad * 2) / (points.length - 1);
+      const yFor = (v) => {
+        const norm = (v - min) / range;
+        return def.lowerIsBetter ? pad + norm * (h - pad * 2) : h - pad - norm * (h - pad * 2);
+      };
+      const coords = points.map((p, i) => [pad + i * xStep, yFor(p.value)]);
+      const pathD = coords.map((c, i) => (i === 0 ? "M" : "L") + c[0] + "," + c[1]).join(" ");
+
+      const path = document.createElementNS(svgNs, "path");
+      path.setAttribute("d", pathD);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "#ff5a3c");
+      path.setAttribute("stroke-width", "2.5");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-linejoin", "round");
+      svg.appendChild(path);
+
+      coords.forEach(([x, y]) => {
+        const c = document.createElementNS(svgNs, "circle");
+        c.setAttribute("cx", x);
+        c.setAttribute("cy", y);
+        c.setAttribute("r", "2.5");
+        c.setAttribute("fill", "#ff5a3c");
+        svg.appendChild(c);
+      });
+
+      card.appendChild(svg);
+      grid.appendChild(card);
+    });
+  }
+
+  // ---------------- Toast ----------------
+  let toastTimer = null;
+  function showToast(message) {
+    const el = document.getElementById("toast");
+    el.textContent = message;
+    el.hidden = false;
+    requestAnimationFrame(() => el.classList.add("show"));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      el.classList.remove("show");
+      setTimeout(() => { el.hidden = true; }, 250);
+    }, 3200);
+  }
+
+  // ---------------- Backup: Export / Import ----------------
+  document.getElementById("btn-export").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `75hard-backup-${todayISO()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    document.getElementById("export-note").textContent = `Downloaded 75hard-backup-${todayISO()}.json`;
+  });
+
+  const importFileInput = document.getElementById("import-file-input");
+  document.getElementById("btn-import").addEventListener("click", () => {
+    importFileInput.value = "";
+    importFileInput.click();
+  });
+
+  importFileInput.addEventListener("change", () => {
+    const file = importFileInput.files && importFileInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      let imported;
+      try {
+        imported = JSON.parse(reader.result);
+      } catch (e) {
+        alert("That file isn't valid JSON — couldn't import it.");
+        return;
+      }
+      if (!confirm("Import this backup? It will replace everything currently in the app on this device.")) return;
+      state = Object.assign(defaultState(), imported);
+      migrateLegacyPRs(state);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderAll();
+      document.getElementById("export-note").textContent = "Backup imported.";
+      showToast("Backup imported");
+    };
+    reader.onerror = () => alert("Couldn't read that file — try again.");
+    reader.readAsText(file);
+  });
 
   function escapeHtml(str) {
     const div = document.createElement("div");
@@ -1182,6 +1641,7 @@
     renderFood();
     renderBodyStats();
     renderMeasurements();
+    renderProgressCharts();
   }
 
   // ---------------- Sync (GitHub Gist) ----------------

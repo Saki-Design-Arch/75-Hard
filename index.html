@@ -96,6 +96,7 @@
           </label>
           <div class="phase-status" id="phase-status"></div>
         </div>
+        <div class="pain-flags" id="pain-flags"></div>
       </div>
 
       <div class="panel" id="today-session-panel">
@@ -225,7 +226,7 @@
       <div class="panel">
         <div class="panel-header">
           <h2>Today's Totals</h2>
-          <p>Phase 1–2 target: 2,100–2,250 kcal &middot; 180–200g protein &middot; 70–80g fat minimum.</p>
+          <p id="food-target-line">Phase 1–2 target: 2,100–2,250 kcal &middot; 180–200g protein &middot; 70–80g fat minimum.</p>
         </div>
         <div class="nutrition-grid" id="food-totals-grid"></div>
         <div class="progress-wrap" style="margin-top:16px;">
@@ -294,6 +295,14 @@
 
     <!-- ===================== FITNESS RECORDS ===================== -->
     <section id="view-records" class="view">
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Progress Charts</h2>
+          <p>The wins that actually keep you showing up.</p>
+        </div>
+        <div class="progress-charts-grid" id="progress-charts-grid"></div>
+      </div>
 
       <div class="panel">
         <div class="panel-header">
@@ -384,10 +393,14 @@
 
     <!-- ===================== BODY STATS ===================== -->
     <section id="view-bodystats" class="view">
+      <div class="panel" id="recalc-banner-wrap" hidden>
+        <div class="recalc-banner" id="recalc-banner"></div>
+      </div>
+
       <div class="panel">
         <div class="panel-header">
           <h2>Body Weight</h2>
-          <p>Log periodic check-ins to see your trend.</p>
+          <p>Log periodic check-ins to see your trend. The rate is the number that matters — daily readings are mostly water.</p>
         </div>
         <form id="weight-form" class="inline-form">
           <input type="date" id="bw-date" required>
@@ -398,9 +411,14 @@
           </select>
           <button type="submit" class="btn btn-primary">Add Entry</button>
         </form>
+        <div class="weight-rate" id="weight-rate"></div>
         <div class="chart-wrap">
           <svg id="weight-chart" viewBox="0 0 600 220" preserveAspectRatio="none"></svg>
-          <p class="empty-msg" id="weight-empty">No body weight entries yet.</p>
+          <p class="empty-msg" id="weight-empty">Log at least 2 entries to see your trend.</p>
+        </div>
+        <div class="chart-legend">
+          <span><i class="legend-swatch avg"></i> 7-day average (trend)</span>
+          <span><i class="legend-swatch raw"></i> Raw daily entries</span>
         </div>
         <div class="table-wrap">
           <table id="weight-table">
@@ -469,9 +487,24 @@
           <p class="sync-note">Syncs automatically a couple seconds after any change, and every time you open the app. Use "Sync Now" to force it.</p>
         </div>
       </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Backup</h2>
+          <p>A local file is the one backup that survives everything else failing — do this now, then whenever you want a checkpoint.</p>
+        </div>
+        <div class="controls-row">
+          <button type="button" class="btn btn-primary" id="btn-export">Export Backup (.json)</button>
+          <button type="button" class="btn btn-ghost" id="btn-import">Import Backup (.json)</button>
+          <input type="file" id="import-file-input" accept="application/json" style="display:none">
+        </div>
+        <p class="sync-note" id="export-note"></p>
+      </div>
     </section>
 
   </main>
+
+  <div id="toast" class="toast" hidden></div>
 
   <footer class="footer">
     <p>Data is stored locally in your browser (localStorage). Nothing leaves your device.</p>
