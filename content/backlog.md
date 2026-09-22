@@ -5,6 +5,8 @@ that sits here for a month either becomes a script or gets deleted.
 
 ## Date Miles Club
 
+> **Parked, 2026-09-21.** Saki decided Date Miles Club stays parked (`aby/decisions/0008`). Nothing below is scheduled until it is unparked, and no launch date may be stated. Part 3 of the opening arc, `scripts/2026-09-22-october-first.md`, is on hold.
+
 The three part opening arc is written and scheduled: 2026-09-20, 09-21, 09-22. Part 3 is
 blocked on the ceiling decision. After that the club becomes daily content because the
 calendar writes the hook.

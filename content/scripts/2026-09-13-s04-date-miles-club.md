@@ -1,4 +1,5 @@
 # 2026-09-13 · The date sets the distance
+> **HOLD, do not film as written.** This script says the club starts October 1. On 2026-09-21 Saki decided Date Miles Club stays parked (`aby/decisions/0008`), so no launch date may be stated. What this video says instead is Saki's call.
 
 **Program:** Day 1 · Week 1 · Phase 1 Foundation and Ignition
 **Session:** n/a, straight to lens

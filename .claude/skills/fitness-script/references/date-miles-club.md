@@ -1,4 +1,5 @@
 # Date Miles Club
+> **Status: parked, 2026-09-21.** Saki decided Date Miles Club stays parked (`aby/decisions/0008`). The October 1, 2026 launch below is superseded and must not appear in any script. The ceiling design stands for whenever it is unparked, and its dates get recalculated from the real start.
 
 The offer the account is being built to open. Written by Saki, never launched. This file
 holds the charter as he wrote it, the math on it, and what has to change before it goes

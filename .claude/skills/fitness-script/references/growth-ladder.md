@@ -1,4 +1,5 @@
 # The ladder to a million
+> **Status: parked, 2026-09-21.** Saki decided Date Miles Club stays parked (`aby/decisions/0008`). The October 1, 2026 launch below is superseded and must not appear in any script. The ceiling design stands for whenever it is unparked, and its dates get recalculated from the real start.
 
 Growth is not the goal. Reach is the mechanism. The goal is a Date Miles Club with real
 people in it and a personal training roster that is full. This file says what to post

@@ -1,4 +1,5 @@
 # 2026-09-22 · Fixed version, and it starts October 1
+> **HOLD, do not film as written.** This script says the club starts October 1. On 2026-09-21 Saki decided Date Miles Club stays parked (`aby/decisions/0008`), so no launch date may be stated. What this video says instead is Saki's call.
 
 **Program:** Day 10 · Week 2 · Phase 1 Foundation and Ignition
 **Session:** Pull Strength + Posterior Chain (second post of the day)
