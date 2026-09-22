@@ -13,7 +13,7 @@
   ];
 
   // ---- Foundation Protocol: Heavy Calisthenics / Marine Conditioning ----
-  const PROGRAM_START_DEFAULT = "2026-08-16";
+  const PROGRAM_START_DEFAULT = "2026-09-13";
 
   const PHASES = [
     { phase: 1, weeks: [1, 4], name: "Foundation & Ignition", focus: "Relearn movement patterns, protect joints, build the habit, start the deficit, low-impact conditioning." },
@@ -153,6 +153,7 @@
       workouts: [],
       bodyweights: [
         { id: uid(), date: "2026-08-21", value: 256.4, unit: "lb" },
+        { id: uid(), date: "2026-09-13", value: 257.6, unit: "lb" },
       ],
     };
   }
