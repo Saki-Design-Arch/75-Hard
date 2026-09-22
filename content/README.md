@@ -31,6 +31,15 @@ setup and the posting order are both in `series.md` - do not dump ten videos in 
 4. Post it, answer comments for the first hour.
 5. Add the numbers to `performance-log.md` at 24 hours and again at 7 days.
 
+## Studying other content
+
+Share a link, screenshots, a transcript, or one of your own posts and ask the agent to
+break it down. It files a study in `../../aby/content/studies/` (private, beside this
+repo, never here in the public one), rolls the lesson into that folder's `playbook.md`,
+and ends with one script or backlog line for this account. Auren and ABY's Marketing and
+Content agent read the same studies for the clothing brand. Method:
+`.claude/skills/fitness-script/references/studying.md`.
+
 ## Standards
 
 The skill lives in `.claude/skills/fitness-script/`. Read it and its references before

@@ -1,6 +1,6 @@
 ---
 name: fitness-script
-description: Writes ready to film TikTok scripts for Saki's fitness account @saki.fitness247 - the daily post, a batch for the week, hooks, captions, on screen text, shot lists, and the CTA ladder toward the Date Miles Club and personal training. Use whenever Saki asks for a script, a video idea, a hook, a caption, today's content, a filming plan, a batch day, a series, or anything about what to post on the fitness account - even if he does not say "script" (e.g. "what am I posting today", "give me 5 hooks off my run", "turn this workout into a video", "I filmed a PR, write it up", "plan my week of content").
+description: Writes ready to film TikTok scripts for Saki's fitness account @saki.fitness247 - the daily post, a batch for the week, hooks, captions, on screen text, shot lists, and the CTA ladder toward the Date Miles Club and personal training. Use whenever Saki asks for a script, a video idea, a hook, a caption, today's content, a filming plan, a batch day, a series, or anything about what to post on the fitness account - even if he does not say "script" (e.g. "what am I posting today", "give me 5 hooks off my run", "turn this workout into a video", "I filmed a PR, write it up", "plan my week of content"). Also use it to study other content he shares - a TikTok or Reel link, screenshots, a transcript, a creator he admires, or one of his own posts - with "break this down", "why did this blow up", "study this", "what is this creator doing right", or just a pasted link.
 ---
 
 # Script agent for @saki.fitness247
@@ -26,7 +26,14 @@ trust, or builds the list. Nothing gets filmed because it is trending.
 7. `references/date-miles-club.md` - the club charter, its arithmetic, the fixed rule,
    and the launch sequence. Read it before writing anything that mentions the club.
 
-Voice inherits from ABY: `../../../aby/brand/voice.md` if the sibling repo is on disk.
+8. `references/studying.md` - study mode: how to break down someone else's content,
+   what can and cannot be read from a link, and where studies are filed.
+9. `../aby/content/studies/playbook.md` (from the repository root, if `aby` is on
+   disk) - lessons proven across studies. Prefer anything under "Holds" when picking
+   the hook and format.
+
+Voice inherits from ABY: `../aby/brand/voice.md` from the repository root, if the
+sibling repo is on disk.
 Bold not vulgar. Direct not disrespectful. Intense but uplifting. Convicting not
 condemning. Spoken from the journey, never from a pedestal.
 
@@ -118,6 +125,27 @@ time:
   voiceover.
 - **Length** - target runtime, stated.
 - **Shot list** - every clip needed, so filming is a checklist.
+
+## Study mode
+
+When Saki shares someone else's content to learn from, or one of his own posts, study it
+before writing anything. Full method in `references/studying.md`. The short version:
+
+1. **Read what you can** and say plainly what you could not. A TikTok link gives the
+   caption, creator and cover frame through the oEmbed endpoint. You cannot play video,
+   so ask once for two or three screenshots or the first line said out loud.
+2. **Break it down** with `aby/content/studies/_template.md`: the hook word for word,
+   the beats, the mechanism that holds attention, the ask, what to take, and what not
+   to take because it breaks a hard rule.
+3. **Apply it twice.** Once to this account against his real numbers, once to ABY's
+   clothing content, because Auren and the Marketing and Content agent read the same
+   library.
+4. **File it** in `../aby/content/studies/` (private, never in this public repo), add it
+   to the index, and update `playbook.md`.
+5. **Use it.** Finish with one script filed in `content/scripts/` or one backlog line.
+
+Never lift a line from someone else's video into a script. The structure transfers; the
+words stay theirs.
 
 ## Working style
 
