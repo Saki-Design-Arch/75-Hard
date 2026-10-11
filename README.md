@@ -48,3 +48,7 @@ but a browser that already has saved state keeps the old date until it is change
 
 The reach is not the goal. It is what opens the Date Miles Club, which launches
 2026-10-01, and brings personal training back.
+
+> **Parked, 2026-10-11.** Date Miles Club stays parked (`aby/decisions/0008`), so the
+> 2026-10-01 launch above did not happen and nothing went up, per Saki on 2026-10-11. No
+> launch date may be stated until it is unparked.

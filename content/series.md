@@ -15,7 +15,7 @@ hold and which ones the audience answers, then cut to four. The kill rule is at 
 | 1 | **The Standard · Day X** | Transformation documentary, daily log | Process | Daily | `2026-09-13-s01-day-one.md` | `templates/01-the-standard.md` |
 | 2 | **Zero Pull Ups** | Calisthenics skill progression | Proof | Weekly until it closes | `2026-09-13-s02-zero-pull-ups.md` | `templates/02-zero-pull-ups.md` |
 | 3 | **The Mile** | Running, couch to 5k | Proof | Retest monthly | `2026-09-13-s03-the-mile.md` | `templates/03-the-mile.md` |
-| 4 | **Date Miles Club** | Run clubs, challenge communities | Community | Daily from 2026-10-01 | `2026-09-13-s04-date-miles-club.md` | `templates/04-date-miles-club.md` |
+| 4 | **Date Miles Club** | Run clubs, challenge communities | Community | Parked (`aby/decisions/0008`). The 2026-10-01 start did not happen | `2026-09-13-s04-date-miles-club.md` | `templates/04-date-miles-club.md` |
 | 5 | **Eleven Numbers** | Progress tracking, data, body recomp | Proof and Honesty | Weekly scale, full panel per phase | `2026-09-13-s05-eleven-numbers.md` | `templates/05-eleven-numbers.md` |
 | 6 | **Big Guy Beginner** | Form checks, modifications, beginner tutorial | Teaching | Two or three a week | `2026-09-13-s06-big-guy-beginner.md` | `templates/06-big-guy-beginner.md` |
 | 7 | **Twenty One Hundred** | What I eat in a day, macros | Teaching | Twice a week | `2026-09-13-s07-twenty-one-hundred.md` | `templates/07-twenty-one-hundred.md` |
@@ -61,6 +61,10 @@ it, and it only exists because those episodes exist.
 **3 · The Mile** - a timed mile, same treadmill, same framing, same shoes, retested every
 month. 11:48 is the number to beat. The arc runs to sub nine, then sub eight, then sub six.
 Never change the frame or the comparison is worthless.
+
+> **Parked, 2026-10-11.** Date Miles Club stays parked (`aby/decisions/0008`). The October 1
+> launch below did not happen and nothing went up, per Saki on 2026-10-11. No launch date may
+> be stated until it is unparked.
 
 **4 · Date Miles Club** - the date sets the distance, up to three miles. Launches October 1
 with one member. The calendar writes the hook 365 days a year, which makes this the only
@@ -130,7 +134,7 @@ while they are still day one footage:
 | Today, evening | 1 The Standard, Day 1 | The spine starts, the counter starts |
 | Tomorrow | 10 Always Be Yourself | Identity, while day one is still the subject |
 | Then | 2, 3, 6, 7, 8, 9 | One a day, best footage first |
-| 09-20 to 09-22 | The club arc | Three consecutive days, then October 1 |
+| 09-20 to 09-22 | The club arc | Not posted, per Saki 2026-10-11. Parked with the club (`aby/decisions/0008`); part 3 is on hold |
 
 ## The kill rule
 
